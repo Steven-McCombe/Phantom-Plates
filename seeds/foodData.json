@@ -1,0 +1,29 @@
+[  {    "kitchen_id": 1,
+    "food_name": "Burgers",
+        "description": "Juicy beef burgers topped with your choice of toppings.",
+            "price": 12.99,
+            "image_url": "https://via.placeholder.com/150"  },  
+            
+{    "kitchen_id": 1,
+    "food_name": "Hot Dogs",
+        "description": "Classic grilled hot dogs served with your choice of toppings.",    "price": 9.99,
+        "image_url": "https://via.placeholder.com/150"  }, 
+
+{    "kitchen_id": 2,
+    "food_name": "Pad Thai",
+    "description": "Authentic Thai stir-fried noodles with chicken and vegetables.",
+    "price": 14.99,
+    "image_url": "https://via.placeholder.com/150"  },  
+
+{    "kitchen_id": 2,
+    "food_name": "Chicken Tikka Masala",
+    "description": "Tender chicken in a rich and creamy tomato-based sauce.",
+    "price": 16.99,
+    "image_url": "https://via.placeholder.com/150"  },  
+
+{    "kitchen_id": 3,
+    "food_name": "Buffet Package",
+    "description": "A variety of dishes for your next event or party, including sandwiches, salads, and appetizers.",
+    "price": 199.99,
+    "image_url": "https://via.placeholder.com/150"  }
+]

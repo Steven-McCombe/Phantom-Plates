@@ -1,18 +1,29 @@
 [
-    {
-      "name": "Daniel",
-      "email": "Daniel@gmail.com",
-      "password": "password123"
-    },
-    {
-      "name": "Miklos",
-      "email": "Miklos@gmail.com",
-      "password": "password123"
-    },
-    {
-      "name": "Steven",
-      "email": "Steven@gmail.com",
-      "password": "password789"
-    }
-  ]
-  
+  {
+    "name": "John Doe",
+    "email": "john.doe@example.com",
+    "password": "password123",
+    "allergies": "None",
+    "bio": "I am an avid outdoors enthusiast and love to go hiking and camping in my free time.",
+    "role": "Producer",
+    "image_url": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Jane Smith",
+    "email": "jane.smith@example.com",
+    "password": "password456",
+    "allergies": "Peanuts",
+    "bio": "I am a foodie and love to try new restaurants and cuisines. I have a peanut allergy, so I always have to be careful when eating out.",
+    "role": "Producer",
+    "image_url": "https://via.placeholder.com/150"
+  },
+  {
+    "name": "Bob Johnson",
+    "email": "bob.johnson@example.com",
+    "password": "password789",
+    "allergies": "None",
+    "bio": "I am a software developer and love to build apps and websites in my free time.",
+    "role": "Producer",
+    "image_url": "https://via.placeholder.com/150"
+  }
+]

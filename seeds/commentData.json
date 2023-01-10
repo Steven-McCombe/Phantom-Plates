@@ -1,0 +1,26 @@
+[
+    {
+      "rating": 5,
+      "comment_body": "I absolutely loved the food at this kitchen! The burgers were juicy and the toppings were fresh. I will definitely be coming back.",
+      "kitchen_id": 1,
+      "user_id": 1
+    },
+    {
+      "rating": 4,
+      "comment_body": "The hot dogs were really good and the toppings were creative. The only thing I would change is the bun - it was a bit too hard for my taste.",
+      "kitchen_id": 1,
+      "user_id": 2
+    },
+    {
+      "rating": 5,
+      "comment_body": "I was really impressed with the quality of the pad thai. The flavors were spot on and the chicken was cooked perfectly. I will definitely be ordering from this kitchen again.",
+      "kitchen_id": 2,
+      "user_id": 3
+    },
+    {
+      "rating": 4,
+      "comment_body": "The chicken tikka masala was delicious, but I found the portion size to be a bit small. Otherwise, great quality food.",
+      "kitchen_id": 2,
+      "user_id": 1
+    }
+]

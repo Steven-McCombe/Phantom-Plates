@@ -29,7 +29,7 @@ New users will need to Sign Up. Click the Login/Signup button to be redirected t
 Existing users can login via the Login/Signup button. Enter your existing credentials to log in. 
 
 
-###Application Screenshot:
+### Application Screenshot:
 
  -[<img src="public/images/Application_Screenshot.jpeg">](https://)
 

@@ -35,6 +35,25 @@ User.init(
         len: [8],
       },
     },
+    allergies: {
+      type: DataTypes.STRING,
+    },
+    bio: {
+      type: DataTypes.TEXT
+      
+    },
+    created_at: {
+      type: DataTypes.DATE,
+      allowNull: false,
+      defaultValue: DataTypes.NOW,
+    },
+    role: {
+      type: DataTypes.STRING,
+      defaultValue: "Consumer",
+    },
+    image_url: {
+      type: DataTypes.STRING,
+    }
   },
   {
     hooks: {

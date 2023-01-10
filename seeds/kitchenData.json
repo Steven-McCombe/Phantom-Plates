@@ -1,0 +1,30 @@
+[
+    {
+      "user_id": 1,
+      "kitchen_name": "John's Kitchen",
+      "location": "San Francisco, CA",
+      "description": "A small home kitchen specializing in classic American dishes.",
+      "cuisine": "American",
+      "available": true,
+      "image_url": "https://via.placeholder.com/150"
+    },
+    {
+      "user_id": 2,
+      "kitchen_name": "Jane's Kitchen",
+      "location": "New York, NY",
+      "description": "A cozy home kitchen serving a variety of international dishes.",
+      "cuisine": "International",
+      "available": true,
+      "image_url": "https://via.placeholder.com/150"
+    },
+    {
+      "user_id": 3,
+      "kitchen_name": "Bob's Kitchen",
+      "location": "Los Angeles, CA",
+      "description": "A spacious professional kitchen offering catering services for events and parties.",
+      "cuisine": "Catering",
+      "available": true,
+      "image_url": "https://via.placeholder.com/150"
+    }
+  ]
+  

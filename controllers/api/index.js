@@ -9,7 +9,7 @@ const addressRoutes = require('./addressRoutes')
 // router.use('/users', userRoutes);
 router.use('/kitchen', kitchenRoutes);
 router.use('/comment', commentRoutes);
-// router.use('/food', foodRoutes);
+router.use('/food', foodRoutes);
 router.use('./address', addressRoutes);
 
 module.exports = router;

@@ -25,12 +25,12 @@ Comments.init(
       defaultValue: DataTypes.NOW,
     },
     kitchen_id: {
-    type: DataTypes.INTEGER,
-    references: {
-        model: 'kitchen',
-        key: 'id'
-    }
-    },
+      type: DataTypes.INTEGER,
+      references: {
+          model: 'kitchen',
+          key: 'id'
+      }
+  },
     user_id: {
       type: DataTypes.INTEGER,
       references: {

@@ -6,7 +6,8 @@
             
 {    "kitchen_id": 1,
     "food_name": "Hot Dogs",
-        "description": "Classic grilled hot dogs served with your choice of toppings.",    "price": 9.99,
+        "description": "Classic grilled hot dogs served with your choice of toppings.",    
+        "price": 9.99,
         "image_url": "https://via.placeholder.com/150"  }, 
 
 {    "kitchen_id": 2,

@@ -111,4 +111,20 @@ try {
 }
 });
 
+//TODO Add withAuth ('/', withAuth, async back after testing to ensure only users who created the comment can edit
+router.delete('/:id', async (req, res) => {
+  try {
+   const dbComment = await Comments.destroy({
+      where: {
+       id: req.params.id,
+      // user_id: req.session.user_id //!Add this in when live.
+      },
+    });
+    res.json(dbComment);
+  } catch (err) {
+    console.log(err);
+    res.status(500).json(err);
+  }
+});
+
   module.exports = router;

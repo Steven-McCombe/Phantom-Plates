@@ -5,12 +5,23 @@ const withAuth = require('../../utils/auth');
 const { where } = require('sequelize');
 
 
-  // Get all kitchens
+  // Get all kitchens with comments and names of person created the comment through the user model 
   router.get('/', async (req, res) => {
     try {
       const dbKitchen = await Kitchen.findAll({
-
-  
+        include: [
+          {
+            model: Comments,
+            attributes: ['id', 'rating', 'comment_body', 'created_at', 'user_id'],
+            include: [
+              {
+                model: User,
+                attributes: ['name'],
+                as: 'user',
+              }
+            ]
+          },
+        ]
       });
       res.json(dbKitchen)
     } catch (err) {

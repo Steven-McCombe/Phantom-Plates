@@ -1,8 +1,9 @@
 const { Model, DataTypes } = require('sequelize');
 const sequelize = require('../config/connection');
 
-class Food extends Model {}
+class Food extends Model { }
 
+//MODEL FOR FOODS FROM EACH KITCHEN
 Food.init(
   {
     id: {

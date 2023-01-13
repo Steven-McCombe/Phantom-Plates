@@ -10,18 +10,14 @@ const { where } = require('sequelize');
 router.get('/', async (req, res) => {
     try {
         const dbUser = await User.findAll({
-            attributes: ['id', 'name', 'email', 'password', 'bio', 'created_at', 'role', 'role', 'image_url'],
+            attributes: ['id', 'name', 'email','bio', 'created_at', 'role', 'role', 'image_url'],
             include: [
-                {
-                    model: Reviews,
-                    attributes: ['review_text', 'ratings'],
-                    
-                },
                 {
                     model: Kitchen,
                     attributes: ['kitchen_name', 'location']
                 },
             ],
+            exclude: ['password'],
             order: [['created_at', 'DESC']],
 
         });
@@ -36,18 +32,15 @@ router.get('/:id', async (req, res) => {
     try {
         const id = req.params.id
         const dbUser = await User.findByPk(id, {
-            attributes: ['id', 'name', 'email', 'password', 'bio', 'created_at', 'role', 'image_url'],
+            attributes: ['id', 'name', 'email', 'bio', 'created_at', 'role', 'image_url'],
             include: [
                 {
                     model: Kitchen,
                     attributes: ['kitchen_name', 'location'],
                     
                 },
-                {
-                    model: Reviews,
-                    attributes: ['ratings']
-                },
             ],
+            exclude: ['password'],
             order: [['created_at', 'DESC']],
 
         });

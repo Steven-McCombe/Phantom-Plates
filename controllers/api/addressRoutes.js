@@ -56,6 +56,7 @@ router.post('/', async (req, res) => {
 //   {
 //     "street": "4 4th Street",
 //     "city": "Denver",
+//     "state": "Colorado",
 //     "zip": 80014,
 //     "apt_no": "4D",
 //     "country": "USA",
@@ -67,6 +68,7 @@ router.post('/', async (req, res) => {
     const dbAddress = await Address.create({
       street: req.body.street,
       city: req.body.city,
+      state: req.body.state,
       zip: req.body.zip,
       apt_no: req.body.apt_no,
       country: req.body.country,
@@ -88,6 +90,7 @@ router.put('/:id', async (req, res) => {
       {
         street: req.body.street,
         city: req.body.city,
+        state: req.body.state,
         zip: req.body.zip,
         apt_no: req.body.apt_no,
         country: req.body.country,

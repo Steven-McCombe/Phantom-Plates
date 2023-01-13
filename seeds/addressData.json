@@ -2,6 +2,7 @@
     {
         "street": "1 1st Street",
         "city": "New York",
+        "state":"New York",
         "zip": 10001,
         "apt_no": "1A",
         "country": "USA",
@@ -11,6 +12,7 @@
     {
         "street": "2 2nd Street",
         "city": "Chicago",
+        "state":"Illinois",
         "zip": 60601,
         "apt_no": "2B",
         "country": "USA",
@@ -20,6 +22,7 @@
     {
         "street": "3 3rd Street",
         "city": "Denver",
+        "state":"Colorado",
         "zip": 80014,
         "apt_no": "3C",
         "country": "USA",

@@ -12,8 +12,29 @@
 <body>
     <header>Phantom Plates</header>
     <nav>
+        {{#if loggedIn}}
+        <button>Logout</button>
+        {{else}}
         <a href="./login.handlebars">Login</a>
+        {{/if}} <br><br>
+        <input type="search" placeholder="Search Nearby Kitchens"> <br><br>
+        <input type="submit">
     </nav>
+
+    <main>
+        <div class="container">
+            <h1>Hot Plates</h1>
+            <p>Tantalize your tastebuds from the best kitchens in the area!</p>
+            {{#if loggedIn}}
+            <section>
+                <ul>
+                    {{#each Kitchen.kitchen_name as |kitchen| }}
+                    {{>Kitchen.description}}
+                    {{/each}}
+                </ul>
+            </section>
+        </div>
+    </main>
 </body>
 
 </html>

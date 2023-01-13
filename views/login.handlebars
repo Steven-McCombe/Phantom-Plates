@@ -10,7 +10,17 @@
 </head>
 
 <body>
-
+    {{#if loggedIn}}
+    <section>
+        <button>Go my Profile</button>
+        <button>Logout</button>
+    </section>
+    {{#else}}
+    <section>
+        <input type="text" placeholder="Username">
+        <input type="text" placeholder="Password">
+    </section>
+    {{/if}}
 </body>
 
 </html>

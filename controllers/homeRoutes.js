@@ -22,7 +22,6 @@ router.get('/', async (req, res) => {
         });
 
         const kitchens = dbKitchen.map((kitchen) => kitchen.get({ plain: true }));
-        console.log(kitchens)
         res.render('homepage', {
             kitchens,
             logged_in: req.session.logged_in
@@ -32,7 +31,47 @@ router.get('/', async (req, res) => {
     }
     
 });
+//RENDER Kitchen by ID
+router.get('/kitchen/:id', async (req, res) => {
+    try {
+        // Get all Kitchens and JOIN with user, food and comment data
+        const dbKitchen = await Kitchen.findAll({
+            where: {
+                id: req.params.id
+            },
+          include: [
+              {
+              model: Comments,
+              attributes: ['id', 'rating', 'comment_body', 'created_at', 'user_id', 'kitchen_id'],
+              include: [
+                {
+                  model: User,
+                }
+              ]
+              },
+              {
+                  model: Food,
+                  include: {
+                      model: Kitchen
+                  }
+              },
+              {
+                  model: User,
+                  exclude: ['password']
+              }
+          ]
+        });
 
+        const kitchens = dbKitchen.map((kitchen) => kitchen.get({ plain: true }));
+        res.render('kitchenbyid', {
+            kitchens,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+    
+});
 //RENDER LOGIN PAGE ROUTE
 router.get('/login', (req, res) => {
 

@@ -50,6 +50,9 @@ const { where } = require('sequelize');
               }
             ]
           },
+          {
+            model: User,
+          }
         ]
     });
       

@@ -29,7 +29,7 @@
 {    "kitchen_id": 3,
     "food_name": "Buffet Package",
     "description": "A variety of dishes for your next event or party, including sandwiches, salads, and appetizers.",
-    "ingredients": "",
+    "ingredients": "Varies by Order",
     "price": 199.99,
     "image_url": "https://source.unsplash.com/KrFvg_W3c4c"  },
 {

@@ -16,5 +16,11 @@
       "comment_body": "I was really impressed with the quality of the pad thai. The flavors were spot on and the chicken was cooked perfectly. I will definitely be ordering from this kitchen again.",
       "kitchen_id": 2,
       "user_id": 3
+    },
+    {
+      "rating": 5,
+      "comment_body": "I was really impressed with the quality of the food.",
+      "kitchen_id": 1,
+      "user_id": 4
     }
 ]

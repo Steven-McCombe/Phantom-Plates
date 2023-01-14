@@ -25,6 +25,9 @@ Food.init(
     description: {
         type: DataTypes.STRING,
     },
+    ingredients: {
+      type: DataTypes.STRING,
+    },
     price: {
         type: DataTypes.DECIMAL(10, 2),
     },

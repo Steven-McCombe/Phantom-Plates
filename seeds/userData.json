@@ -6,7 +6,7 @@
     "allergies": "None",
     "bio": "I am an avid outdoors enthusiast and love to go hiking and camping in my free time.",
     "role": "Producer",
-    "image_url": "https://via.placeholder.com/150"
+    "image_url": "https://source.unsplash.com/v2aKnjMbP_k"
   },
   {
     "name": "Jane Smith",
@@ -15,7 +15,7 @@
     "allergies": "Peanuts",
     "bio": "I am a foodie and love to try new restaurants and cuisines. I have a peanut allergy, so I always have to be careful when eating out.",
     "role": "Producer",
-    "image_url": "https://via.placeholder.com/150"
+    "image_url": "https://source.unsplash.com/btdRU178eLo"
   },
   {
     "name": "Bob Johnson",
@@ -24,6 +24,34 @@
     "allergies": "None",
     "bio": "I am a software developer and love to build apps and websites in my free time.",
     "role": "Producer",
-    "image_url": "https://via.placeholder.com/150"
-  }
+    "image_url": "https://source.unsplash.com/_THUISs23CI"
+  },
+  {
+    "name": "Emma Williams",
+    "email": "emma.williams@example.com",
+    "password": "password111",
+    "allergies": "None",
+    "bio": "I am a graphic designer and love to create visually appealing designs. I also enjoy photography as a hobby.",
+    "role": "Producer",
+    "image_url": "https://source.unsplash.com/TT-ROxWj9nA"
+    },
+    {
+    "name": "Michael Brown",
+    "email": "michael.brown@example.com",
+    "password": "password222",
+    "allergies": "Gluten",
+    "bio": "I am a fitness enthusiast and love to work out at the gym. I have a gluten allergy, so I always have to be careful with my diet.",
+    "role": "Producer",
+    "image_url": "https://source.unsplash.com/HCeifKAhHNE"
+    },
+    {
+    "name": "Emily Davis",
+    "email": "emily.davis@example.com",
+    "password": "password333",
+    "allergies": "None",
+    "bio": "I am a nurse and love to help others. In my free time, I enjoy reading and traveling.",
+    "role": "Producer",
+    "image_url": "https://source.unsplash.com/k9XZPpPHDho"
+    }
+    
 ]

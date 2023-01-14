@@ -1,30 +1,59 @@
 [  {    "kitchen_id": 1,
     "food_name": "Burgers",
         "description": "Juicy beef burgers topped with your choice of toppings.",
+        "ingredients": "beef patty, bun, lettuce, tomato, cheese (optional)",
             "price": 12.99,
-            "image_url": "https://via.placeholder.com/150"  },  
+            "image_url": "https://source.unsplash.com/sc5sTPMrVfk"  },  
             
 {    "kitchen_id": 1,
     "food_name": "Hot Dogs",
-        "description": "Classic grilled hot dogs served with your choice of toppings.",    
+        "description": "Classic grilled hot dogs served with your choice of toppings.",  
+        "ingredients": "Hot Dog Bun, Pork, Toppings of your choice, such as mustard, ketchup, cheese, onions, relish, etc.",  
         "price": 9.99,
-        "image_url": "https://via.placeholder.com/150"  }, 
+        "image_url": "https://source.unsplash.com/glqTtszXfM0"  }, 
 
 {    "kitchen_id": 2,
     "food_name": "Pad Thai",
     "description": "Authentic Thai stir-fried noodles with chicken and vegetables.",
+    "ingredients": "Rice noodles, Chicken breast, Onion, Bell pepper, Carrots, Cabbage, Scallions, Garlic, Soy sauce, Fish sauce, Brown sugar, Lime juice, Eggs, Peanut oil, Fresh cilantro, Green onions, Peanuts (for garnish), chili paste.",
     "price": 14.99,
-    "image_url": "https://via.placeholder.com/150"  },  
+    "image_url": "https://source.unsplash.com/q3b2-eyrKr4"  },  
 
 {    "kitchen_id": 2,
     "food_name": "Chicken Tikka Masala",
     "description": "Tender chicken in a rich and creamy tomato-based sauce.",
+    "ingredients": "Chicken breast, Yogurt, Garlic, Ginger, Ground cumin, Ground coriander, Garam masala, Paprika, Turmeric, Cayenne pepper, Salt, Tomato puree, Heavy cream, Butter, Fresh cilantro (for garnish)",
     "price": 16.99,
-    "image_url": "https://via.placeholder.com/150"  },  
+    "image_url": "https://source.unsplash.com/PqsImnjuElM"  },  
 
 {    "kitchen_id": 3,
     "food_name": "Buffet Package",
     "description": "A variety of dishes for your next event or party, including sandwiches, salads, and appetizers.",
+    "ingredients": "",
     "price": 199.99,
-    "image_url": "https://via.placeholder.com/150"  }
+    "image_url": "https://source.unsplash.com/KrFvg_W3c4c"  },
+{
+        "kitchen_id": 4,
+        "food_name": "Croissants",
+        "description": "Flaky and buttery croissants in a variety of flavors, including plain, chocolate, and almond.",
+        "ingredients": "All-purpose flour, Instant yeast, Salt, Sugar, Milk, Unsalted butter, Egg, Optional: Chocolate chips, Almond paste or any flavorings",
+        "price": 3.99,
+        "image_url": "https://source.unsplash.com/lE5O9DktAQY"
+        },
+        {
+        "kitchen_id": 5,
+        "food_name": "Veggie Burger",
+        "description": "A delicious and healthy veggie burger made with a variety of vegetables and spices.",
+        "ingredients": "Cooked and mashed beans, Grated carrots, Grated beetroot, Chopped onion, Chopped coriander, Chopped mint, Chopped green chili, Cumin powder, Coriander powder, Garam Masala powder, Salt, Breadcrumbs",
+        "price": 8.99,
+        "image_url": "https://source.unsplash.com/_TLKIVSW6Do"
+        },
+        {
+        "kitchen_id": 6,
+        "food_name": "Quinoa Salad",
+        "description": "A healthy and delicious salad made with quinoa, mixed greens, and a variety of vegetables.",
+        "ingredients": "Cooked Quinoa, Mixed greens, Cherry tomatoes, Cucumber, Red onion, Feta cheese, Lemon juice, Olive oil, Salt, Pepper, Optional: fresh herbs such as parsley, mint, or cilantro, seeds or nuts such as pumpkin, almonds.",
+        "price": 9.99,
+        "image_url": "https://source.unsplash.com/oYvZ-stypr4"
+        }
 ]

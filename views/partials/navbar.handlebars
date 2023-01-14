@@ -1,0 +1,81 @@
+    <link
+      href="https://unpkg.com/@material-tailwind/html@latest/styles/material-tailwind.css"
+      rel="stylesheet"
+    />
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    />
+    <div
+      class="min-h-screen p-10 pt-10 h-100"
+    >
+        <nav class="navbar w-full bg-white">
+            <div class="container-lg px-0">
+                <div class="flex w-full items-center">
+                    <img src="/images/smalllogo.png" alt="">
+                <a class="nav-brand mr-auto ml-0" href="/">Phantom Plates</a>
+                <button
+                    navbar-trigger=""
+                    class="navbar-trigger ml-auto mr-0 mb-0 lg:hidden xl:hidden"
+                    type="button"
+                    aria-controls="navigation"
+                    aria-expanded="false"
+                    aria-label="Toggle navigation"
+                >
+                    <span class="navbar-trigger-icon">
+                    <span bar1="" class="navbar-trigger-bar mt-1"
+                        ><span class="hidden origin-[10%_10%] rotate-45"></span
+                    ></span>
+                    <span bar2="" class="bar2 navbar-trigger-bar mt-2"></span>
+                    <span bar3="" class="bar3 navbar-trigger-bar mt-2"
+                        ><span
+                        class="mt-mt-[0.4375rem] hidden origin-[10%_90%] -rotate-45"
+                        ></span
+                    ></span>
+                    </span>
+                </button>
+                </div>
+                <div class="collapse navbar-collapse" navbar-menu="">
+                <ul class="navbar-nav">
+                    <li>
+                    <a id = "navbutton-" class="nav-link" aria-current="page" href="/">
+                        <i class="material-icons mr-2 text-base opacity-60">home</i>
+                        <span>Home</span>
+                    </a>
+                    </li>
+                    <li>
+                    <a id = "navbutton-" class="nav-link" href="/profile">
+                        <i class="material-icons mr-2 text-base opacity-60">account_circle</i>
+                        <span>Profile</span>
+                    </a>
+                    </li>
+                    <li class="flex">
+                        <a id = "navbutton-" class="nav-link" href="/orders">
+                            <i class="material-icons mr-2 text-base opacity-60">lunch_dining</i>
+                            <span>My Orders</span>
+                        </a>
+                    </li>
+                    {{#if logged_in}}
+                    <li>
+                        <a id = "navbutton-logout" class="nav-link" href="/logout">
+                            <i class="material-icons mr-2 text-base opacity-60">logout</i>
+                            <span>Logout</span>
+                        </a>
+                    </li>
+                    {{else}}
+                        <li>
+                        <a id = "navbutton-login" class="nav-link" href="/login">
+                            <i class="material-icons mr-2 text-base opacity-60">login</i>
+                            <span>Login</span>
+                        </a>
+                    {{/if}}
+                    </li>
+                </ul>
+                </div>
+            </div>
+        </nav>
+      </div>
+    </div>
+    
+    <!-- from cdn -->
+    <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>

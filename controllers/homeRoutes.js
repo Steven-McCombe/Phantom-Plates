@@ -60,33 +60,35 @@ router.get('/search', (req, res) => {
 });
 
 //RENDER USER PROFILE
-router.get('/profile', async (req, res) => {
-    try {
-        const id = req.session.user_id
-        // Get all Kitchens and JOIN with user data
-        const dbUser = await User.findByPk(id, {
-            include: [
-                {
-                    model: Kitchen,
-                    include: {
-                        model: Food,
-                    }
-                },
-                {
-                    model: Comments,
-                },
-            ],
+router.get('/profile', (req, res) => {
+    res.render('profile')
+    //add async
+    // try {
+    //     const id = req.session.user_id
+    //     // Get all Kitchens and JOIN with user data
+    //     const dbUser = await User.findByPk(id, {
+    //         include: [
+    //             {
+    //                 model: Kitchen,
+    //                 include: {
+    //                     model: Food,
+    //                 }
+    //             },
+    //             {
+    //                 model: Comments,
+    //             },
+    //         ],
 
-        });
+    //     });
 
-        const users = dbUser.map((user) => user.get({ plain: true }));
-        res.render('profile', {
-            users,
-            logged_in: req.session.logged_in
-        });
-    } catch (err) {
-        res.status(500).json(err);
-    }
+    //     const users = dbUser.map((user) => user.get({ plain: true }));
+    //     res.render('profile', {
+    //         users,
+    //         logged_in: req.session.logged_in
+    //     });
+    // } catch (err) {
+    //     res.status(500).json(err);
+    // }
 
 });
 

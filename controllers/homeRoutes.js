@@ -43,7 +43,16 @@ router.get('/login', (req, res) => {
     }
     res.render('login');
 });
+//RENDER SIGNUP PAGE ROUTE
+router.get('/signup', (req, res) => {
 
+    //if user is signed in redirect to homepage
+    if(req.session.loggedIn) {
+        res.redirect('/');
+        return; 
+    }
+    res.render('signup');
+});
 //RENDER SEARCH PAGE
 router.get('/search', (req, res) => {
 

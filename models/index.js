@@ -4,7 +4,7 @@ const Comments = require('./comments')
 const Food = require('./food')
 const Kitchen = require('./kitchens')
 const Address = require('./address')
-
+// const Order = require('./order')
 
 //Many to one Relationship - User has Many comments but a comment can only have one user.
 //If the user is deleted CASCADE will delete all their comment entries.

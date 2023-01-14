@@ -33,4 +33,70 @@ router.get('/', async (req, res) => {
     
 });
 
+//RENDER LOGIN PAGE ROUTE
+router.get('/login', (req, res) => {
+
+    //if user is signed in redirect to homepage
+    if(req.session.loggedIn) {
+        res.redirect('/');
+        return; 
+    }
+    res.render('login');
+});
+
+//RENDER SEARCH PAGE
+router.get('/search', (req, res) => {
+
+    res.render('search');
+});
+
+//RENDER USER PROFILE
+router.get('/profile', async (req, res) => {
+    try {
+        const id = req.session.user_id
+        // Get all Kitchens and JOIN with user data
+        const dbUser = await User.findByPk(id, {
+            include: [
+                {
+                    model: Kitchen,
+                    include: {
+                        model: Food,
+                    }
+                },
+                {
+                    model: Comments,
+                },
+            ],
+
+        });
+
+        const users = dbUser.map((user) => user.get({ plain: true }));
+        res.render('profile', {
+            users,
+            logged_in: req.session.logged_in
+        });
+    } catch (err) {
+        res.status(500).json(err);
+    }
+
+});
+
+//RENDER ORDER PAGE
+router.get('/order', (req, res) => {
+
+    res.render('order');
+});
+
+//RENDER USER REVIEWS
+router.get('/reviews', (req, res) => {
+
+    res.render('reviews');
+});
+
+//RENDER OPEN ORDERS
+router.get('/orders', (req, res) => {
+
+    res.render('orders');
+});
+
 module.exports = router; 

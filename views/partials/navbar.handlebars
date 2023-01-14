@@ -7,7 +7,7 @@
 
     {{!-- nav bar container  --}}
     <div
-      class="p-10 pt-10 h-100"
+      class="pl-10 pr-10 pb-5 pt-10 h-100"
     >
         <nav class="navbar w-full bg-white">
             <div class="container-lg px-0">
@@ -49,13 +49,19 @@
                     <li>
                     <a id = "navbutton-profile" class="nav-link" href="/profile">
                         <i class="material-icons mr-2 text-base opacity-60">account_circle</i>
-                        <span>Profile</span>
+                        <span>Dashboard</span>
                     </a>
                     </li>
                     <li class="flex">
                         <a id = "navbutton-orders" class="nav-link" href="/orders">
                             <i class="material-icons mr-2 text-base opacity-60">lunch_dining</i>
                             <span>My Orders</span>
+                        </a>
+                    </li>
+                    <li class="flex">
+                        <a id = "navbutton-orders" class="nav-link" href="/orders">
+                            <i class="material-icons mr-2 text-base opacity-60">lunch_dining</i>
+                            <span>Near Me</span>
                         </a>
                     </li>
                     {{!-- nav bar will show log out if logged in or log in if logged out  --}}

@@ -14,8 +14,8 @@ router.get('/', async (req, res) => {
                     attributes: ['name'],
                 },
                 {
-                    model: Comments,
-                    attributes: ['comment_body', 'rating'],
+                    model: Food,
+                    attributes: ['kitchen_id', 'food_name', 'description', 'ingredients', 'price', 'image_url'],
                 },
             ],
             order: [['created_at', 'DESC']],
@@ -60,8 +60,8 @@ router.get('/search', (req, res) => {
 });
 
 //RENDER USER PROFILE
-router.get('/profile', (req, res) => {
-    res.render('profile')
+router.get('/dashboard', (req, res) => {
+    res.render('dashboard')
     //add async
     // try {
     //     const id = req.session.user_id

@@ -4,7 +4,7 @@
 
 
 
-<div class = "container available-kitchens flex flex-wrap py-5">
+<div class = "container available-kitchens flex flex-wrap py-0 mb-2">
 
         <div class="flex items-center justify-center w-full h-full py-0 sm:py-4 px-4">
             <div class="w-full relative flex items-center justify-center">
@@ -39,7 +39,7 @@
                     <p class="text-xs">Delivery time: {{delivery_time}} Mins</p>
                     <br>
                     {{#if available}}
-                    <a href="/kitchen/{{id}}">Order Now</a>
+                    <a href="/kitchen/{{id}}">View Menu</a>
                     {{else}}
                     <p>Currently Closed</p>
                     {{/if}}
@@ -58,6 +58,42 @@
                 </button>
             </div>
         </div>
+</div>
+{{!-- end Recently added kitchens  --}}
+
+{{!-- start Recently added food --}}
+<h5 class="text-center">Recently Added Foods</h5>
+
+<div class="container available-kitchens flex flex-wrap py-0 items-center justify-center">
+{{#each kitchens}}
+{{!-- KITCHEN CARD  --}}
+{{#each food as |food|}}
+<div class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center ml-2 mr-2 w-32 h-130"
+          >
+            <div class="bg-white rounded-lg mt-5">
+              <img
+                src="{{image_url}}"
+                class="h-20 rounded-md w-32"
+                alt=""
+              />
+            </div>
+            <div class="bg-white shadow-lg rounded-lg -mt-4 w-32 h-100 overflow-hidden">
+              <div class="py-1 px-1">
+                <span class="font-semibold text-gray-800 text-s whitespace-nowrap ">{{food_name}}</span>
+                <div class="py-1 px-1">
+                    <p class="text-xs mb-2 font-extrathin h-20 w-31 overflow-hidden">{{description}}</p>
+                    <br>
+                    <p class="text-xs">Price: ${{price}}</p>
+                    <br>
+                    <a class="align-end "href="/kitchen/{{kitchen_id}}">View Menu</a>
+
+                </div>
+              </div>
+            </div>       
+</div>
+{{/each}}
+{{!-- END KITCHEN CARD  --}}
+{{/each}}
 </div>
 
 {{!-- script for carousel functionality  --}}

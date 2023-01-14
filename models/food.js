@@ -43,7 +43,8 @@ Food.init(
       defaultValue: DataTypes.NOW,
     },
         image_url: {
-        type: DataTypes.STRING
+          type: DataTypes.STRING,
+          defaultValue: "/images/placeholder-food.jpeg"
     },
   },
   {

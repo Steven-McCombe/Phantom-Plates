@@ -13,7 +13,7 @@ const { where } = require('sequelize');
         include: [
           {
             model: Comments,
-            attributes: ['id', 'rating', 'comment_body', 'created_at', 'user_id'],
+            attributes: ['id', 'rating', 'comment_body', 'created_at', 'user_id', 'kitchen_id'],
             include: [
               {
                 model: User,
@@ -22,6 +22,9 @@ const { where } = require('sequelize');
               }
             ]
           },
+          {
+            model: Food,
+          }
         ]
       });
       res.json(dbKitchen)
@@ -38,7 +41,7 @@ const { where } = require('sequelize');
         include: [
           {
             model: Comments,
-            attributes: ['id', 'rating', 'comment_body', 'created_at', 'user_id'],
+            attributes: ['id', 'rating', 'comment_body', 'created_at', 'user_id', 'kitchen_id'],
             include: [
               {
                 model: User,

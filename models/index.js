@@ -26,6 +26,10 @@ Kitchen.hasMany(Comments, {
     foreignKey: 'kitchen_id',
     onDelete: 'CASCADE'
 })
+Kitchen.hasMany(Food, {
+    foreignKey: 'kitchen_id',
+    onDelete: 'CASCADE'
+})
 
 Comments.belongsTo(User, {
     foreignKey: 'user_id',
@@ -42,6 +46,10 @@ Address.belongsTo(User, {
     onDelete: 'CASCADE'
 })
 Address.belongsTo(Kitchen, {
+    foreignKey: 'kitchen_id',
+    onDelete: 'CASCADE'
+}),
+Food.belongsTo(Kitchen, {
     foreignKey: 'kitchen_id',
     onDelete: 'CASCADE'
 })

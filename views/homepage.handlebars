@@ -1,33 +1,100 @@
-<header>
-    <h1>Phantom Plates</h1>
-    <nav>
-        {{#if loggedIn}}
-        <button>Logout</button>
-        {{else}}
-        <a href="./login.handlebars">Login</a>
-        {{/if}} <br><br>
-        <input type="search" placeholder="Search Nearby Kitchens"> <br><br>
-        <input type="submit">
-    </nav>
-</header>
+{{> navbar}}
 
-<main>
-    <div class="container">
-        <h1>Hot Plates</h1>
-        <p>Tantalize your tastebuds from the best kitchens in the area!</p>
-        <section>
-            <ul>
-                {{#each kitchens as |kitchen| }}
-                <p>{{kitchen_name}}</p>
-                <p>{{user.name}}</p>
-                {{#each comments}}
-                <p>{{comments.comment_body}}</p>
-                <p>{{comments.rating}}</p>
-                {{/each}}
-                <p>{{location}}</p>
-                <p>{{description}}</p>
-                {{/each}}
-            </ul>
-        </section>
-    </div>
-</main>
+<h5 class="text-center">Recently Added Kitchens</h5>
+
+
+
+<div class = "container available-kitchens flex flex-wrap py-0 mb-2">
+
+        <div class="flex items-center justify-center w-full h-full py-0 sm:py-4 px-4">
+            <div class="w-full relative flex items-center justify-center">
+                <button aria-label="slide backward" class="absolute z-30 left-0 ml-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400 cursor-pointer" id="prev">
+                    <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M7 1L1 7L7 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+                <div class="w-full h-full mx-auto overflow-x-hidden overflow-y-hidden">
+                    <div id="slider" class="h-full flex lg:gap-4 md:gap-3 gap-7 items-center justify-start transition ease-out duration-700">
+
+{{#each kitchens as |kitchen|}}
+{{!-- KITCHEN CARD  --}}
+<div class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center ml-5 mr-5"
+          >
+            <div class="bg-white rounded-lg mt-5">
+              <img
+                src="{{image_url}}"
+                class="h-40 rounded-md w-64"
+                alt=""
+              />
+            </div>
+            <div class="bg-white shadow-lg rounded-lg -mt-4 w-64 h-100">
+              <div class="py-3 px-3">
+                <span class="font-bold text-gray-800 text-lg">{{kitchen_name}}</span>
+                <p class="text-gray-800 text-m font-semibold">{{location}}</p>
+                <p class="text-xs mb-2 font-semibold">{{neighborhood}}</p>
+                <div class="py-2 px-2">
+                    <p class="text-xs mb-1">{{cuisine}} Cuisine</p>
+                    <p class="text-xs mb-2 font-semibold ">{{description}}</p>
+                    <p class="text-xs">Delivery Radius: {{delivery_radius}} Miles </p>
+                    <p class="text-xs">Delivery time: {{delivery_time}} Mins</p>
+                    <br>
+                    {{#if available}}
+                    <a href="/kitchen/{{id}}">View Menu</a>
+                    {{else}}
+                    <p>Currently Closed</p>
+                    {{/if}}
+                </div>
+              </div>
+            </div>       
+</div>
+{{!-- END KITCHEN CARD  --}}
+{{/each}}
+                    </div>
+                </div>
+                <button aria-label="slide forward" class="absolute z-30 right-0 mr-10 focus:outline-none focus:bg-gray-400 focus:ring-2 focus:ring-offset-2 focus:ring-gray-400" id="next">
+                    <svg class="dark:text-gray-900" width="8" height="14" viewBox="0 0 8 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M1 1L7 7L1 13" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+</div>
+{{!-- end Recently added kitchens  --}}
+
+{{!-- start Recently added food --}}
+<h5 class="text-center">Recently Added Foods</h5>
+
+<div class="container available-kitchens flex flex-wrap py-0 items-center justify-center">
+{{#each kitchens}}
+{{!-- KITCHEN CARD  --}}
+{{#each food as |food|}}
+<div class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center ml-2 mr-2 w-32 h-130"
+          >
+            <div class="bg-white rounded-lg mt-5">
+              <img
+                src="{{image_url}}"
+                class="h-20 rounded-md w-32"
+                alt=""
+              />
+            </div>
+            <div class="bg-white shadow-lg rounded-lg -mt-4 w-32 h-100 overflow-hidden">
+              <div class="py-1 px-1">
+                <span class="font-semibold text-gray-800 text-s whitespace-nowrap ">{{food_name}}</span>
+                <div class="py-1 px-1">
+                    <p class="text-xs mb-2 font-extrathin h-20 w-31 overflow-hidden">{{description}}</p>
+                    <br>
+                    <p value = "{{price}}" class="text-xs">Price: ${{price}}</p>
+                    <br>
+                    <a class="align-end "href="/kitchen/{{kitchen_id}}">View Menu</a>
+
+                </div>
+              </div>
+            </div>       
+</div>
+{{/each}}
+{{!-- END KITCHEN CARD  --}}
+{{/each}}
+</div>
+
+{{!-- script for carousel functionality  --}}
+<script src="./js/carousel.js"></script>

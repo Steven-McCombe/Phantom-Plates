@@ -25,6 +25,9 @@ Food.init(
     description: {
         type: DataTypes.STRING,
     },
+    ingredients: {
+      type: DataTypes.STRING,
+    },
     price: {
         type: DataTypes.DECIMAL(10, 2),
     },
@@ -40,7 +43,8 @@ Food.init(
       defaultValue: DataTypes.NOW,
     },
         image_url: {
-        type: DataTypes.STRING
+          type: DataTypes.STRING,
+          defaultValue: "/images/placeholder-food.jpeg"
     },
   },
   {

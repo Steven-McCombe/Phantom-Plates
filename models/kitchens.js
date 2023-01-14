@@ -24,6 +24,9 @@ Kitchen.init(
     location: {
         type: DataTypes.STRING,
     },
+    neighborhood: {
+      type: DataTypes.STRING
+    },
     description: {
         type: DataTypes.STRING,
     },
@@ -38,13 +41,20 @@ Kitchen.init(
       allowNull: false,
       defaultValue: DataTypes.NOW,
     },
+    delivery_radius:{
+      type: DataTypes.INTEGER,
+    },
+    delivery_time:{
+      type: DataTypes.INTEGER,
+    },
     updated_at: {
       type: DataTypes.DATE,
       allowNull: false,
       defaultValue: DataTypes.NOW,
         },
         image_url: {
-        type: DataTypes.STRING
+          type: DataTypes.STRING,
+          defaultValue: "/images/placeholder-food.jpeg"
         },
   },
   {

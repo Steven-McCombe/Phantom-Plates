@@ -5,118 +5,82 @@ const withAuth = require('../../utils/auth');
 const { where } = require('sequelize');
 
 
-
-// Get all users
+//Get all users
 router.get('/', async (req, res) => {
     try {
-        const dbUser = await User.findAll({
-            attributes: ['id', 'name', 'email','bio', 'created_at', 'role', 'role', 'image_url'],
-            include: [
-                {
-                    model: Kitchen,
-                    attributes: ['kitchen_name', 'location']
-                },
-            ],
-            exclude: ['password'],
-            order: [['created_at', 'DESC']],
-
-        });
-        res.json(dbUser)
+      const userData = await User.findAll({
+        attributes: ['id', 'name', 'email',],
+        exclude: ['password'],
+        order: [['id', 'ASC']],
+  
+      });
+      res.json(userData)
     } catch (err) {
-        res.status(500).json(err)
+      res.status(500).json(err)
     }
-});
-
-// Get a user by ID
-router.get('/:id', async (req, res) => {
+  });
+  
+  
+  //Create a new User and save their session id
+  router.post('/', async (req, res) => {
     try {
-        const id = req.params.id
-        const dbUser = await User.findByPk(id, {
-            attributes: ['id', 'name', 'email', 'bio', 'created_at', 'role', 'image_url'],
-            include: [
-                {
-                    model: Kitchen,
-                    attributes: ['kitchen_name', 'location'],
-                    
-                },
-            ],
-            exclude: ['password'],
-            order: [['created_at', 'DESC']],
-
-        });
-
-        if (!dbUser) {
-            return res.status(404).json({ message: 'user not found.' });
-        }
-        res.json(dbUser);
+      const userData = await User.create({
+        name: req.body.name,
+        password: req.body.password,
+        email: req.body.email
+      });
+  
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+  
+        res.status(200).json(userData);
+      });
     } catch (err) {
-        res.status(400).json(err);
+      res.status(400).json(err);
     }
-});
-
-
-// Create a new comment
-//TODO Add withAuth, ('/', withAuth, async back after testing to ensure only signed in users can
-
-router.post('/', async (req, res) => {
-        try {
-        const dbUser = await User.create({
-            name: req.body.name,
-            email: req.body.email,
-            password: req.body.password, 
-            allergies: req.body.allergies,
-            bio: req.body.bio,
-            role: req.body.role,
-            image_url: req.body.image_url,
-        });
-        res.json(dbUser);
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
-    }
-});
-
-//Edit comment request
-//TODO Add withAuth ('/', withAuth, async back after testing to ensure only users who created the comment can edit
-router.put('/:id', async (req, res) => {
+  });
+  // Login route. Verify if user exists
+  router.post('/login', async (req, res) => {
     try {
-        const dbUser = await User.update(
-            {
-                name: req.body.name,
-                email: req.body.email,
-                password: req.body.password,
-                allergies: req.body.allergies,
-                bio: req.body.bio,
-                role: req.body.role,
-                image_url: req.body.image_url,
-            },
-            {
-                where: {
-                    id: req.params.id,
-                },
-            }
-        );
-        res.json(dbUser);
+      const userData = await User.findOne({ where: { email: req.body.email } });
+  
+      if (!userData) {
+        res
+          .status(400)
+          .json({ message: 'Incorrect email or password, please try again' });
+        return;
+      }
+  
+      const validPassword = await userData.checkPassword(req.body.password);
+  
+      if (!validPassword) {
+        res
+          .status(400)
+          .json({ message: 'Incorrect email or password, please try again' });
+        return;
+      }
+  
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+        
+        res.json({ user: userData, message: 'You are now logged in!' });
+      });
+  
     } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
+      res.status(400).json(err);
     }
-});
-
-//TODO Add withAuth ('/', withAuth, async back after testing to ensure only users who created the comment can edit
-router.delete('/:id', async (req, res) => {
-    try {
-        const dbUser = await User.destroy({
-            where: {
-                id: req.params.id,
-                // user_id: req.session.user_id //!Add this in when live.
-            },
-        });
-        res.json(dbUser);
-    } catch (err) {
-        console.log(err);
-        res.status(500).json(err);
+  });
+  // log out route. Destroys the session cookie
+  router.post('/logout', (req, res) => {
+    if (req.session.logged_in) {
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+    } else {
+      res.status(404).end();
     }
-});
+  });
 
 module.exports = router;

@@ -3,28 +3,73 @@
       "user_id": 1,
       "kitchen_name": "John's Kitchen",
       "location": "San Francisco, CA",
+      "neighborhood":"Mission District",
       "description": "A small home kitchen specializing in classic American dishes.",
       "cuisine": "American",
+      "delivery_radius": "5",
+      "delivery_time": "45",
       "available": true,
-      "image_url": "https://via.placeholder.com/150"
+      "image_url": "https://source.unsplash.com/gkMjf_XWTN4"
     },
     {
       "user_id": 2,
       "kitchen_name": "Jane's Kitchen",
       "location": "New York, NY",
+      "neighborhood":"Upper East Side",
       "description": "A cozy home kitchen serving a variety of international dishes.",
       "cuisine": "International",
+      "delivery_radius": "3",
+      "delivery_time": "40",
       "available": true,
-      "image_url": "https://via.placeholder.com/150"
+      "image_url": "https://source.unsplash.com/QQ1uNcuVZLM"
     },
     {
       "user_id": 3,
       "kitchen_name": "Bob's Kitchen",
       "location": "Los Angeles, CA",
+      "neighborhood":"Hollywood",
       "description": "A spacious professional kitchen offering catering services for events and parties.",
       "cuisine": "Catering",
+      "delivery_radius": "10",
+      "delivery_time": "30",
       "available": true,
-      "image_url": "https://via.placeholder.com/150"
-    }
+      "image_url": "https://source.unsplash.com/SiwrpBnxDww"
+    },
+    {
+      "user_id": 4,
+      "kitchen_name": "Emma's Kitchen",
+      "location": "Chicago, IL",
+      "neighborhood":"West Loop",
+      "description": "A small home kitchen offering homemade pastries and baked goods.",
+      "cuisine": "Bakery",
+      "delivery_radius": "2",
+      "delivery_time": "60",
+      "available": true,
+      "image_url": "https://source.unsplash.com/uG3Vu5TXKxE"
+      },
+      {
+      "user_id": 5,
+      "kitchen_name": "Michael's Kitchen",
+      "location": "Houston, TX",
+      "neighborhood":"Midtown",
+      "description": "A professional kitchen offering a variety of vegetarian and vegan dishes.",
+      "cuisine": "Vegetarian/Vegan",
+      "delivery_radius": "7",
+      "delivery_time": "50",
+      "available": true,
+      "image_url": "https://source.unsplash.com/oaz0raysASk"
+      },
+      {
+      "user_id": 6,
+      "kitchen_name": "Emily's Kitchen",
+      "location": "Phoenix, AZ",
+      "neighborhood":"Downtown",
+      "description": "A small home kitchen offering a variety of healthy and organic dishes.",
+      "cuisine": "Healthy/Organic",
+      "delivery_radius": "5",
+      "delivery_time": "60",
+      "available": true,
+      "image_url": "https://source.unsplash.com/ZDZIp9Tir3s"
+      }
   ]
   

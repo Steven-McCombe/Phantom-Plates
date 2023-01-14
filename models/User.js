@@ -53,6 +53,7 @@ User.init(
     },
     image_url: {
       type: DataTypes.STRING,
+      defaultValue: "/images/placeholder-profile.jpeg"
     }
   },
   {

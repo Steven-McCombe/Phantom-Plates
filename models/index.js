@@ -4,7 +4,7 @@ const Comments = require('./comments')
 const Food = require('./food')
 const Kitchen = require('./kitchens')
 const Address = require('./address')
-
+// const Order = require('./order')
 
 //Many to one Relationship - User has Many comments but a comment can only have one user.
 //If the user is deleted CASCADE will delete all their comment entries.
@@ -26,6 +26,10 @@ Kitchen.hasMany(Comments, {
     foreignKey: 'kitchen_id',
     onDelete: 'CASCADE'
 })
+Kitchen.hasMany(Food, {
+    foreignKey: 'kitchen_id',
+    onDelete: 'CASCADE'
+})
 
 Comments.belongsTo(User, {
     foreignKey: 'user_id',
@@ -42,6 +46,10 @@ Address.belongsTo(User, {
     onDelete: 'CASCADE'
 })
 Address.belongsTo(Kitchen, {
+    foreignKey: 'kitchen_id',
+    onDelete: 'CASCADE'
+}),
+Food.belongsTo(Kitchen, {
     foreignKey: 'kitchen_id',
     onDelete: 'CASCADE'
 })

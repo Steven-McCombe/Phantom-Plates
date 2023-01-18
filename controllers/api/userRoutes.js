@@ -18,7 +18,21 @@ router.get('/', async (req, res) => {
     } catch (err) {
       res.status(500).json(err)
     }
-  });
+});
+  
+//Get all users
+router.get('/:id', async (req, res) => {
+  try {
+    const userData = await User.findAll({
+      where: { id: req.params.id },
+      exclude: ['password'],
+    });
+    res.json(userData);
+  } catch (err) {
+    res.status(500).json(err);
+  }
+});
+
   
   
   //Create a new User and save their session id
@@ -40,6 +54,30 @@ router.get('/', async (req, res) => {
       res.status(400).json(err);
     }
   });
+
+  router.put('/', withAuth, async (req, res) => {
+    try {
+      const userData = await User.update({
+        bio: req.body.bio,
+        allergies: req.body.allergies,
+        role: req.body.role,
+        image_url: req.body.image_url
+      },
+      { where: { 
+        id: req.session.user_id
+      }});
+  
+      req.session.save(() => {
+        req.session.user_id = userData.id;
+        req.session.logged_in = true;
+  
+        res.status(200).json(userData);
+      });
+    } catch (err) {
+      res.status(400).json(err);
+    }
+  });
+
   // Login route. Verify if user exists
   router.post('/login', async (req, res) => {
     try {

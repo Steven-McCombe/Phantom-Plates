@@ -61,7 +61,6 @@ router.post('/', async (req, res) => {
 //     "apt_no": "4D",
 //     "country": "USA",
 //     "user_id": 4,
-//     "kitchen_id": 4
 // }
 
   try {
@@ -72,9 +71,8 @@ router.post('/', async (req, res) => {
       zip: req.body.zip,
       apt_no: req.body.apt_no,
       country: req.body.country,
-      user_id: req.body.user_id, //when testing //!Remove or comment out this line for deployment
-      // user_id: req.session.user_id, //TODO When live.
-      kitchen_id:  req.body.kitchen_id,
+      user_id: req.session.user_id, 
+
     });
     res.json(dbAddress);
   } catch (err) {

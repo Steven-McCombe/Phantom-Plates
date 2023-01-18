@@ -8,7 +8,8 @@
     "seed": "node seeds/seed.js",
     "watch": "nodemon server.js",
     "build-css": "tailwindcss build",
-    "start": "concurrently \"npm run start:css\" \"npm run watch\"",
+    "dev": "concurrently \"npm run start:css\" \"npm run watch\"",
+    "start": "concurrently \"npm run start:css\" \"node server.js\"",
     "start:css": "tailwindcss -o ./public/styles/output.css --watch",
     "build": "npm run build:css",
     "build:css": "NODE_ENV=production tailwindcss -o ./public/styles/output.css -m"

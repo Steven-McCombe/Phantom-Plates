@@ -34,7 +34,8 @@ Kitchen.init(
         type: DataTypes.STRING,
     },
     available: {
-        type: DataTypes.BOOLEAN,
+      type: DataTypes.BOOLEAN,
+      defaultValue: true
     },
     created_at: {
       type: DataTypes.DATE,

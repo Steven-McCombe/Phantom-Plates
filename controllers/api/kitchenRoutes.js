@@ -85,7 +85,6 @@ router.post('/', async (req, res) => {
       location: req.body.location,
       description: req.body.description,
       cuisine: req.body.cuisine,
-      available: req.body.available, //this is BOOLEAN value.
       image_url: req.body.image_url
     });
     res.json(dbKitchen);

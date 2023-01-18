@@ -20,7 +20,7 @@ router.get('/', async (req, res) => {
     }
 });
   
-//Get all users
+//Get users by ID
 router.get('/:id', async (req, res) => {
   try {
     const userData = await User.findAll({

@@ -1,26 +1,38 @@
 [
     {
       "rating": 5,
-      "comment_body": "I absolutely loved the food at this kitchen! The burgers were juicy and the toppings were fresh. I will definitely be coming back.",
+      "comment_body": "I absolutely loved the food at this kitchen! The flavors were well balanced and the ingredients were fresh. I will definitely be coming back.",
       "kitchen_id": 1,
-      "user_id": 1
+      "user_id": 6
     },
     {
-      "rating": 4,
-      "comment_body": "The hot dogs were really good and the toppings were creative. The only thing I would change is the bun - it was a bit too hard for my taste.",
-      "kitchen_id": 1,
-      "user_id": 2
+      "rating": 3,
+      "comment_body": "The food was really good and the flavors were creative. The only thing I would change is the presentation - it was a bit too plain for my taste.",
+      "kitchen_id": 2,
+      "user_id": 5
     },
     {
       "rating": 5,
-      "comment_body": "I was really impressed with the quality of the pad thai. The flavors were spot on and the chicken was cooked perfectly. I will definitely be ordering from this kitchen again.",
-      "kitchen_id": 2,
+      "comment_body": "I was really impressed with the quality of the food. The flavors were spot on and the ingredients were cooked perfectly. I will definitely be ordering from this kitchen again.",
+      "kitchen_id": 3,
+      "user_id": 4
+    },
+    {
+      "rating": 5,
+      "comment_body": "I was really impressed with the quality of the food and the service was excellent.",
+      "kitchen_id": 4,
       "user_id": 3
     },
     {
-      "rating": 5,
-      "comment_body": "I was really impressed with the quality of the food.",
-      "kitchen_id": 1,
-      "user_id": 4
-    }
+      "rating": 4,
+      "comment_body": "The food was delicious and the service was great. I would highly recommend this kitchen to anyone.",
+      "kitchen_id": 5,
+      "user_id": 2
+  },
+  {
+      "rating": 2,
+      "comment_body": "The food was average, but the service was slow. I would not return to this kitchen.",
+      "kitchen_id": 6,
+      "user_id": 1
+  }
 ]

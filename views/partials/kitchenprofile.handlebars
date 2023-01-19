@@ -1,0 +1,20 @@
+
+{{#each users.kitchen}}
+	<!--Hero-->
+<div class="container relative items-center justify-center">
+	<div class="container mx-auto flex flex-col md:flex-row items-center my-5 md:my-24">
+		<!--Left Col-->
+		<div class="flex flex-col w-full lg:w-1/2 justify-center items-center pt-4 pb-4 px-6 z-10">
+			<p class="uppercase tracking-loose">{{location}}</p>
+			<p class="uppercase tracking-loose">{{neighborhood}}</p>
+			<h1 class="my-2 whitespace-nowrap">{{kitchen_name}}</h1>
+			<p class="leading-normal my-3 text-s">{{description}}</p>
+		</div>
+		<!--Right Col-->
+		<div class="w-full lg:w-1/2 lg:py-6 text-center absolute z-0">
+			<!--Add your product image here-->
+            <img class="opacity-40 object-none h-48 w-100" src="{{image_url}}" alt="">
+		</div>
+	</div>
+</div>
+{{/each}}

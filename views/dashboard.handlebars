@@ -1,1 +1,15 @@
 {{> navbar}}
+
+{{#if users}}
+<h1 style="text-align: center;">User Profile </h1>
+<p style="text-align: center;">Modify your profile here</p>
+{{> userprofile}}
+<br>
+<h1 style="text-align: center;">Your Kitchen </h1>
+<p style="text-align: center;">Modify your Kitchen Here</p>
+{{> kitchenprofile}}
+<br>
+<h1 style="text-align: center;">Your Menu </h1>
+<p style="text-align: center;">Modify your Menu here</p>
+{{> foodprofile}}
+{{/if}}

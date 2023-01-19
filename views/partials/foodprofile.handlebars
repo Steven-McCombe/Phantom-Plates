@@ -1,0 +1,55 @@
+{{!-- start of menu table  --}}
+<div class="container" id="order-form">
+    <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
+  <table class="w-full border-collapse bg-white text-left text-sm text-gray-500">
+    <thead class="bg-gray-50">
+      <tr>
+        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Item</th>
+        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Ingredients</th>
+        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Price</th>
+        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Quantity</th>
+        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Add</th>
+      </tr>
+    </thead>
+
+{{#each users}}
+{{#each kitchen.food}}
+    <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+      <tr class="hover:bg-gray-50">
+        <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
+          <div class="relative h-20 w-20">
+            <img
+              class="h-full w-full rounded-full object-cover object-center"
+              src="{{image_url}}"
+              alt=""
+            />
+
+          </div>
+          <div class="text-sm">
+            <div class="font-medium text-gray-700">{{food_name}}</div>
+            <div class="text-gray-400">{{description}}</div>
+          </div>
+        </th>
+        <td class="px-6 py-4">
+    <p>{{ingredients}}</p>
+        </td>
+        <td class="px-6 py-4 item-price" value="{{price}}">${{price}}</td>
+        <td class="px-6 py-4">
+          <div class="flex gap-2">
+          </div>
+        </td>
+        <td class="px-6 py-4">
+          <div class="flex justify-end gap-4">
+    <a id = "editProfile" class="nav-link" href="/editProfile"><i class="material-icons mr-2 text-base opacity-60">edit</i></a>
+    <a id = "addProfile" class="nav-link" href="/addProfile"><i class="material-icons mr-2 text-base opacity-60">add</i></a>
+    <a id = "deleteProfile" class="nav-link" href="/deleteProfile"><i class="material-icons mr-2 text-base opacity-60">delete</i></a>
+            </a>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+   {{/each}}
+   {{/each}}
+  </table>
+</div>
+</div>

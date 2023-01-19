@@ -1,0 +1,31 @@
+
+{{#each users}}
+<div class="container">
+<div class="p-8 bg-white shadow mt-24">
+  <div class="grid grid-cols-1 md:grid-cols-3">
+
+    <div class="relative">
+      <div class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl absolute inset-x-0 top-0 -mt-24 flex items-center justify-center text-indigo-500">
+    <img class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl text-indigo-500" src="{{image_url}}" alt="profile picture">
+      </div>
+    </div>
+
+    <div class="space-x-8 flex justify-end mt-10 md:mt-0 md:justify-end">
+    <a id = "editProfile" class="nav-link" href="/editprofile"><i class="material-icons mr-2 text-base opacity-60">edit</i>Edit</a>
+    {{!-- <a id = "addProfile" class="nav-link" href="/addprofile"><i class="material-icons mr-2 text-base opacity-60">add</i>Add</a> --}}
+    <a id = "deleteProfile" class="nav-link" href="/deleteprofile"><i class="material-icons mr-2 text-base opacity-60">delete</i>Delete</a>
+
+
+    </div>
+  </div>
+
+  <div class="mt-20 text-center pb-5">
+    <h1 class="text-4xl font-medium text-gray-700">{{name}}</h1>
+    <p class="font-light text-gray-600 mt-3 mb-3">{{email}}</p>
+    <p class="text-gray-600 text-center font-light lg:px-16">Bio: {{bio}}</p>
+    <p class="text-gray-600 text-center font-light lg:px-16">Listed allergies: {{allergies}}</p>
+    <p class="text-gray-600 text-center font-light lg:px-16">Current Role: {{role}}</p>
+  </div>
+</div>
+</div>
+{{/each}}

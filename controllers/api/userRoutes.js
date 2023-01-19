@@ -26,6 +26,12 @@ router.get('/:id', async (req, res) => {
     const userData = await User.findAll({
       where: { id: req.params.id },
       exclude: ['password'],
+      include: {
+        model: Kitchen,
+        include: {
+          model: Food
+        }
+      }
     });
     res.json(userData);
   } catch (err) {

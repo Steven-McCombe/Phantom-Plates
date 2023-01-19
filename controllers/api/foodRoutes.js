@@ -47,21 +47,9 @@ router.get('/', async (req, res) => {
 router.get('/:id', async (req, res) => {
     try {
         const id = req.params.id
-        const dbFood = await Comments.findByPk(id, {
-            attributes: ['id', 'kitchen_id', 'food_name', 'description', 'price', 'created_at', 'image_url'],
-            include: [
-                {
-                    model: Reviews,
-                    attributes: ['rating'],
-                    
-                },
-                {
-                    model: Kitchen,
-                    attributes: ['kitchen_name', 'cuisine']
-                    
-
-                },
-            ],
+        const dbFood = await Food.findByPk(id, {
+            attributes: ['id', 'kitchen_id', 'food_name', 'description','ingredients', 'price', 'created_at', 'image_url'],
+            
             order: [['created_at', 'DESC']],
 
         });

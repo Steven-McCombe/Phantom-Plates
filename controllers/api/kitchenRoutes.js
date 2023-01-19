@@ -72,9 +72,7 @@ router.get('/', async (req, res) => {
 router.post('/', withAuth, async (req, res) => {
   try {
     const dbKitchen = await Kitchen.create({
-      where: {
-        id: req.session.user_id
-      },
+      user_id: req.session.user_id,
       kitchen_name: req.body.kitchen_name,
       location: req.body.location,
       description: req.body.description,

@@ -7,31 +7,33 @@ const { where } = require('sequelize');
 
 
 //GET ALL KITCHENS - ALSO INCLUDES RELATED COMMENTS AND USER WHO MADE THE COMMENT
-  router.get('/', async (req, res) => {
-    try {
+//RENDER HOMEPAGE
+router.get('/', async (req, res) => {
+  try {
+      // Get all Kitchens and JOIN with user data
       const dbKitchen = await Kitchen.findAll({
-        include: [
-          {
-            model: Comments,
-            attributes: ['id', 'rating', 'comment_body', 'created_at', 'user_id', 'kitchen_id'],
-            include: [
+          include: [
               {
-                model: User,
-                attributes: ['name'],
-                as: 'user',
-              }
-            ]
-          },
-          {
-            model: Food,
-          }
-        ]
+                  model: User,
+                  attributes: ['name'],
+              },
+              {
+                  model: Food,
+                  attributes: ['kitchen_id', 'food_name', 'description', 'ingredients', 'price', 'image_url'],
+              },
+          ],
+          order: [['created_at', 'DESC']],
       });
-      res.json(dbKitchen)
+
+      if (!dbKitchen) {
+        return res.status(404).json({ message: 'Kitchen not found.' });
+      }
+      res.json(dbKitchen);
     } catch (err) {
-      res.status(500).json(err)
+      res.status(400).json(err);
     }
-  });
+  
+});
 
 //GET A KITCHEN BY ID - ALSO INCLUDES RELATED COMMENTS AND USER WHO MADE THE COMMENT
   router.get('/:id', async (req, res) => {
@@ -67,25 +69,19 @@ const { where } = require('sequelize');
 
   // CREATE A NEW KITCHEN ROUTE
 //TODO Add withAuth, ('/', withAuth, async back after testing to ensure only signed in users can
-router.post('/', async (req, res) => {
-  // If user is logged in, this will create a new kitchen
-  //request json should look similar to this for testing feel free to add your own comments, ratings etc.
-  // {
-  //   "user_id": 4, // make sure the user does not have a kitchen already.
-  //   "kitchen_name": "Stevens Kitchen",
-  //   "location": "New York, NY",
-  //   "description": "Tasty Treats",
-  //   "cuisine": "International",
-  //   "available": true,
-  //   "image_url": "https://via.placeholder.com/150"
-  // }
+router.post('/', withAuth, async (req, res) => {
   try {
     const dbKitchen = await Kitchen.create({
+      where: {
+        id: req.session.user_id
+      },
       kitchen_name: req.body.kitchen_name,
       location: req.body.location,
       description: req.body.description,
       cuisine: req.body.cuisine,
-      image_url: req.body.image_url
+      image_url: req.body.image_url,
+      delivery_radius: req.body.delivery_radius,
+      delivery_time: req.body.delivery_time
     });
     res.json(dbKitchen);
   } catch (err) {

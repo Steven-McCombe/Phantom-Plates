@@ -5,7 +5,7 @@ const sequelize = require('../../config/connection');
 const withAuth = require('../../utils/auth');
 const { where } = require('sequelize');
 
-// Create a new comment
+// Create a new Food
 router.post('/', async (req, res) => {
     try {
         const dbFood = await Food.create ({  
@@ -21,7 +21,7 @@ router.post('/', async (req, res) => {
     }
 });
 
-// Get all comments
+// Get all Food
 router.get('/', async (req, res) => {
     try {
         const dbFood = await Food.findAll({

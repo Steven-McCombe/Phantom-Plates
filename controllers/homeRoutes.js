@@ -100,7 +100,9 @@ router.get('/search', (req, res) => {
 
 //RENDER USER PROFILE
 router.get('/dashboard', (req, res) => {
-    res.render('dashboard')
+    res.render('dashboard', {
+        logged_in: req.session.logged_in
+    });
     //add async
     // try {
     //     const id = req.session.user_id

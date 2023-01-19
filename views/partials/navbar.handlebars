@@ -67,10 +67,12 @@
                     {{!-- nav bar will show log out if logged in or log in if logged out  --}}
                     {{#if logged_in}}
                     <li>
-                        <a id = "navbutton-logout" class="nav-link" href="/logout">
+                        <button id="navbutton-logout" class="nav-link">
+                        {{!-- <a id = "navbutton-logout" class="nav-link" href="#"> --}}
                             <i class="material-icons mr-2 text-base opacity-60">logout</i>
                             <span>Logout</span>
-                        </a>
+                            </button>
+                        {{!-- </a> --}}
                     </li>
                     {{else}}
                         <li>
@@ -89,3 +91,7 @@
     
     <!-- script for the hamburger menu from cdn -->
     <script src="https://unpkg.com/@material-tailwind/html@latest/scripts/collapse.js"></script>
+
+    {{#if logged_in}}
+    <script src="./js/logout.js"></script>
+    {{/if}}

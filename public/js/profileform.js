@@ -5,14 +5,14 @@ const profileFormHandler = async (event) => {
   
     const bio = document.querySelector('#bio').value.trim();
     const allergies = document.querySelector('#allergies').value.trim();
-    const role = document.querySelector('#role').value
+    const role = "Consumer"
     const image_url = document.querySelector('#image_url').value
     
     if (bio) {
       // Send a POST request to the API endpoint
       const response = await fetch('/api/user/', {
         method: 'PUT',
-        body: JSON.stringify({ bio, allergies, role, image_url }),
+        body: JSON.stringify({ bio, allergies, image_url }),
         headers: { 'Content-Type': 'application/json' },
       });
   

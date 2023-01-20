@@ -63,8 +63,8 @@ const { where } = require('sequelize');
 
 
   // Create a new comment
-//TODO Add withAuth, ('/', withAuth, async back after testing to ensure only signed in users can
-router.post('/', async (req, res) => {
+
+router.post('/', withAuth, async (req, res) => {
   // If user is logged in, this will create a new comment
   //request json should look similar to this for testing feel free to add your own comments, ratings etc.
   // {
@@ -77,7 +77,7 @@ router.post('/', async (req, res) => {
     const dbComment = await Comments.create({
       comment_body: req.body.comment_body,
       rating: req.body.rating,
-      user_id: req.session.user_id, //TODO When live.
+      user_id: req.session.user_id,
       kitchen_id:  req.body.kitchen_id,
     });
     res.json(dbComment);

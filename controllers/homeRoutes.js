@@ -65,7 +65,8 @@ router.get('/kitchen/:id', async (req, res) => {
         const kitchens = dbKitchen.map((kitchen) => kitchen.get({ plain: true }));
         res.render('kitchenbyid', {
             kitchens,
-            logged_in: req.session.logged_in
+            logged_in: req.session.logged_in,
+            user_id: req.session.user_id
         });
     } catch (err) {
         res.status(500).json(err);

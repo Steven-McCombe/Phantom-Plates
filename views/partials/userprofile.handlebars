@@ -9,22 +9,44 @@
     <img class="w-48 h-48 bg-indigo-100 mx-auto rounded-full shadow-2xl text-indigo-500" src="{{image_url}}" alt="profile picture">
       </div>
     </div>
-
-    <div class="space-x-8 flex justify-end mt-10 md:mt-0 md:justify-end">
-    <a id = "editProfile" class="nav-link" href="/editprofile"><i class="material-icons mr-2 text-base opacity-60">edit</i>Edit</a>
-    {{!-- <a id = "addProfile" class="nav-link" href="/addprofile"><i class="material-icons mr-2 text-base opacity-60">add</i>Add</a> --}}
-    <a id = "deleteProfile" class="nav-link" href="/deleteprofile"><i class="material-icons mr-2 text-base opacity-60">delete</i>Delete</a>
-
-
-    </div>
   </div>
-
-  <div class="mt-20 text-center pb-5">
-    <h1 class="text-4xl font-medium text-gray-700">{{name}}</h1>
-    <p class="font-light text-gray-600 mt-3 mb-3">{{email}}</p>
-    <p class="text-gray-600 text-center font-light lg:px-16">Bio: {{bio}}</p>
-    <p class="text-gray-600 text-center font-light lg:px-16">Listed allergies: {{allergies}}</p>
-    <p class="text-gray-600 text-center font-light lg:px-16">Current Role: {{role}}</p>
+  <div class="userinfo flex justify-between">
+    <div class="mt-20  pb-5">
+      <h1 class="text-4xl font-medium text-gray-700">User Info</h1>
+      <p class="text-gray-600 font-light lg:px-16">Name: {{name}}</p>
+      <p class="text-gray-600 font-light lg:px-16">Email: {{email}}</p>
+      <p class="text-gray-600 font-light lg:px-16">Bio: {{bio}}</p>
+      <p class="text-gray-600 font-light lg:px-16">Listed allergies: {{allergies}}</p>
+      <p class="text-gray-600 font-light lg:px-16">Current Role: {{role}}</p>
+      <br>
+         <div class="buttons flex ">
+      <a id = "editprofile" class="nav-link" href="/editprofile"><i class="material-icons mr-2 text-base opacity-60">edit</i></a>
+      <a id = "deleteprofile" class="nav-link" href="/deleteprofile"><i class="material-icons mr-2 text-base opacity-60">delete</i></a>
+      </div>
+    </div>
+    <div class="addressinfo mt-20  pb-5">
+      {{#if address}}
+      <h5 class="text-4xl font-medium text-gray-700">Address Info</h5>
+      <p class="text-gray-600 font-light lg:px-16">{{street}}</p>
+      <p class="text-gray-600 font-light lg:px-16"> {{apt_no}}</p>
+      <p class="text-gray-600 font-light lg:px-16">{{city}} </p>
+      <p class="text-gray-600 font-light lg:px-16">{{state}} {{zip}}</p>
+      <p class="text-gray-600 font-light lg:px-16">{{country}}</p>
+      <br>
+      {{else}}
+      <p class="text-4xl font-medium text-gray-700">Address Info</p>
+      <p class="text-gray-600 font-light lg:px-16 text-center">. </p>
+      <p class="text-gray-600 font-light lg:px-16 text-center">. </p>
+      <a href="/addaddress"><p class="text-gray-600 font-light lg:px-16 text-center">Add your info</p></a>
+      <p class="text-gray-600 font-light lg:px-16 text-center">. </p>
+      <p class="text-gray-600 font-light lg:px-16 text-center">. </p>
+      <br>
+      {{/if}}
+      <div class="buttons flex ">
+      <a id = "editaddress" class="nav-link" href="/editaddress"><i class="material-icons mr-2 text-base opacity-60">edit</i></a>
+      <a id = "addaddress" class="nav-link" href="/addaddress"><i class="material-icons mr-2 text-base opacity-60">add</i></a>
+      <a id = "deleteaddress" class="nav-link" href="/deleteaddress"><i class="material-icons mr-2 text-base opacity-60">delete</i></a>
+      </div>
   </div>
 </div>
 </div>

@@ -77,8 +77,7 @@ router.post('/', async (req, res) => {
     const dbComment = await Comments.create({
       comment_body: req.body.comment_body,
       rating: req.body.rating,
-      user_id: req.body.user_id, //when testing //!Remove or comment out this line for deployment
-      // user_id: req.session.user_id, //TODO When live.
+      user_id: req.session.user_id, //TODO When live.
       kitchen_id:  req.body.kitchen_id,
     });
     res.json(dbComment);

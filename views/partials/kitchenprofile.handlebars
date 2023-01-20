@@ -1,20 +1,27 @@
 
-{{#each users.kitchen}}
+{{#each users}}
+{{#if kitchen}}
+<h1 style="text-align: center;">Your Kitchen </h1>
+<p style="text-align: center;">Modify your Kitchen Here</p>
 	<!--Hero-->
 <div class="container relative items-center justify-center">
 	<div class="container mx-auto flex flex-col md:flex-row items-center my-5 md:my-24">
 		<!--Left Col-->
 		<div class="flex flex-col w-full lg:w-1/2 justify-center items-center pt-4 pb-4 px-6 z-10">
-			<p class="uppercase tracking-loose">{{location}}</p>
-			<p class="uppercase tracking-loose">{{neighborhood}}</p>
-			<h1 class="my-2 whitespace-nowrap">{{kitchen_name}}</h1>
-			<p class="leading-normal my-3 text-s">{{description}}</p>
+			<p class="uppercase tracking-loose">{{kitchen.location}}</p>
+			<p class="uppercase tracking-loose">{{kitchen.neighborhood}}</p>
+			<h1 class="my-2 whitespace-nowrap">{{kitchen.kitchen_name}}</h1>
+			<p class="leading-normal my-3 text-s">{{kitchen.description}}</p>
+			<p id="kitchenidvalue" value="{{id}}"></p>
 		</div>
 		<!--Right Col-->
 		<div class="w-full lg:w-1/2 lg:py-6 text-center absolute z-0">
 			<!--Add your product image here-->
-            <img class="opacity-40 object-none h-48 w-100" src="{{image_url}}" alt="">
+            <img class="opacity-40 object-none h-48 w-100" src="{{kitchen.image_url}}" alt="">
 		</div>
 	</div>
 </div>
+{{else}}
+<a style="text-align: center;" href="/addkitchen"><h2>Click here to start a Kitchen</h2></a>
+{{/if}}
 {{/each}}

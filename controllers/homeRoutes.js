@@ -102,25 +102,44 @@ router.get('/search', (req, res) => {
 router.get('/dashboard', async (req, res) => {
     try {
         // Get One User
-        const dbUser = await User.findAll({
+        
+        const dbKitchen = await Kitchen.findOne({
             where: {
-                id: req.session.user_id,
+                user_id: req.session.user_id
             },
-            attributes: {
-                exclude: ['password'],
-            },
-            include: [
-                {
-                    model: Kitchen,
-                    where: {
-                        user_id: req.session.user_id
-                    },
-                    include: {
-                        model: Food
-                    }
+        })
+        let dbUser = null
+        if (dbKitchen) {
+            dbUser = await User.findAll({
+                where: {
+                    id: req.session.user_id,
                 },
-            ],
-        });
+                attributes: {
+                    exclude: ['password'],
+                },
+                include: [
+                    {
+                        model: Kitchen,
+                        where: {
+                            user_id: req.session.user_id
+                        },
+                        include: {
+                            model: Food
+                        }
+                    },
+                ],
+            });
+        } else { 
+            dbUser = await User.findAll({
+                where: {
+                    id: req.session.user_id,
+                },
+                attributes: {
+                    exclude: ['password'],
+                },
+            }); 
+        }
+
         if (!dbUser) {
             res.redirect('/');
         }
@@ -158,5 +177,6 @@ router.get('/editprofile', (req, res) => {
 
     res.render('editprofile');
 });
+
 
 module.exports = router; 

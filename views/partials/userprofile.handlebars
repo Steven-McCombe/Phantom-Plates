@@ -27,10 +27,10 @@
       {{#if addresses}}
       <h5 class="text-4xl font-medium text-gray-700">Address Info</h5>
       <p class="text-gray-600 font-light lg:px-16">{{addresses.street}}</p>
-      <p class="text-gray-600 font-light lg:px-16"> {{apt_no}}</p>
-      <p class="text-gray-600 font-light lg:px-16">{{city}} </p>
-      <p class="text-gray-600 font-light lg:px-16">{{state}} {{zip}}</p>
-      <p class="text-gray-600 font-light lg:px-16">{{country}}</p>
+      <p class="text-gray-600 font-light lg:px-16"> {{addresses.apt_no}}</p>
+      <p class="text-gray-600 font-light lg:px-16">{{addresses.city}} </p>
+      <p class="text-gray-600 font-light lg:px-16">{{addresses.state}}, {{addresses.zip}}</p>
+      <p class="text-gray-600 font-light lg:px-16">{{addresses.country}}</p>
       <br>
       {{else}}
       <p class="text-4xl font-medium text-gray-700">Address Info</p>

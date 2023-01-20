@@ -102,8 +102,12 @@ router.get('/search', (req, res) => {
 //RENDER DASHBOARD
 router.get('/dashboard', async (req, res) => {
     try {
-        // Get One User
-        
+        const dbAddress = await Address.findOne({
+            where: {
+                user_id: req.session.user_id
+            },
+        })
+        console.log("this is dbAddresses" + dbAddress)
         const dbKitchen = await Kitchen.findOne({
             where: {
                 user_id: req.session.user_id
@@ -130,7 +134,8 @@ router.get('/dashboard', async (req, res) => {
                     },
                 ],
             });
-        } else { 
+            console.log("this is dbKitchen" + dbKitchen)
+        } else {
             dbUser = await User.findAll({
                 where: {
                     id: req.session.user_id,
@@ -138,21 +143,29 @@ router.get('/dashboard', async (req, res) => {
                 attributes: {
                     exclude: ['password'],
                 },
-            }); 
+            });
+            console.log("this is dbUser" + dbUser)
         }
-
         if (!dbUser) {
             res.redirect('/');
         }
         const users = dbUser.map((user) => user.get({ plain: true }));
+        let addresses = null
+
+        if (dbAddress) { 
+            addresses = dbAddress.get({plain: true})
+        }
+
+        console.log("this is addresses" + addresses)
+        console.log("this is users " + users)
         res.render('dashboard', {
             users,
+            addresses,
             logged_in: req.session.logged_in
         });
     } catch (err) {
         res.status(500).json(err);
     }
-
 });
                                 
 //RENDER ORDER PAGE

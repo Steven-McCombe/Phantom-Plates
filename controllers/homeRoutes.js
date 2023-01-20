@@ -178,5 +178,29 @@ router.get('/editprofile', (req, res) => {
     res.render('editprofile');
 });
 
+//Render Edit Food
+router.get('/editfood', (req, res) => {
+
+    res.render('editfood');
+});
+
+//Render Edit Kitchen
+router.get('/editkitchen', (req, res) => {
+
+    res.render('editkitchen');
+});
+
+//Render Add Kitchen
+router.get('/addkitchen', (req, res) => {
+
+    res.render('addkitchen');
+});
+//Render Edit Address
+router.get('/editAddress', (req, res) => {
+
+    res.render('editAddress');
+});
+
+
 
 module.exports = router; 

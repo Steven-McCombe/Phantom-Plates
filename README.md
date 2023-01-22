@@ -35,13 +35,14 @@ My orders button will display the orders that the users requested while the near
 
  -[<img src="public/images/Application_Screenshot.jpeg">](https://)
  ## Home page: 
- image.png
+ ![image](https://user-images.githubusercontent.com/113649566/213936985-d0b31fc6-6c61-4c0c-b04f-6f29d9ec7cd6.png)
  ## Edit profile form:
- image.png
+ ![image](https://user-images.githubusercontent.com/113649566/213937011-bdcd2192-3880-45d6-bb7b-f87111a943f3.png)
  ## Edit kicthen:
- image.png
- ## edit food:
- image.png
+ ![image](https://user-images.githubusercontent.com/113649566/213937022-55af0189-ac15-4e57-ac21-7caee7326076.png)
+
+## edit food:
+ ![image](https://user-images.githubusercontent.com/113649566/213937041-0cabe4a1-fe93-4694-935e-1d77ac1e509f.png)
 
 ## License 
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) 

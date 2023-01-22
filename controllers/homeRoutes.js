@@ -171,48 +171,64 @@ router.get('/dashboard', async (req, res) => {
 //RENDER ORDER PAGE
 router.get('/order', (req, res) => {
 
-    res.render('order');
+    res.render('order', {
+    logged_in: req.session.logged_in});
 });
 
 //RENDER USER REVIEWS
 router.get('/reviews', (req, res) => {
 
-    res.render('reviews');
+    res.render('reviews', {
+        logged_in: req.session.logged_in});
 });
 
 //RENDER OPEN ORDERS
 router.get('/orders', (req, res) => {
 
-    res.render('orders');
+    res.render('orders', {
+        logged_in: req.session.logged_in});
 });
 
 //Render Edit Profile
 router.get('/editprofile', (req, res) => {
 
-    res.render('editprofile');
+    res.render('editprofile', {
+        logged_in: req.session.logged_in});
 });
 
 //Render Edit Food
-router.get('/editfood', (req, res) => {
-
-    res.render('editfood');
+router.get('/addfood', withAuth, async (req, res) => {
+    const dbKitchen = await Kitchen.findOne({
+        where: {
+            user_id: req.session.user_id
+        },
+    })
+    if (dbKitchen) { 
+        kitchen = dbKitchen.get({plain: true})
+    }
+    res.render('addfood', {
+        kitchen,
+        logged_in: req.session.logged_in});
 });
 
 //Render Edit Kitchen
 router.get('/editkitchen', (req, res) => {
 
-    res.render('editkitchen');
+    res.render('editkitchen', {
+        logged_in: req.session.logged_in});
 });
 
 //Render Add Kitchen
 router.get('/addkitchen', (req, res) => {
 
-    res.render('addkitchen');
+    res.render('addkitchen', {
+        logged_in: req.session.logged_in});
 });
 //Render Add Address
 router.get('/addaddress', (req, res) => {
 
-    res.render('addAddress');
+    res.render('addAddress', {
+        logged_in: req.session.logged_in});
 });
 
 

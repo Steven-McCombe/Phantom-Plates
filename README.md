@@ -34,10 +34,14 @@ My orders button will display the orders that the users requested while the near
 ### Application Screenshot:
 
  -[<img src="public/images/Application_Screenshot.jpeg">](https://)
- ## Home page: image.png
- ## Edit profile form: image.png
- ## Edit kicthen: image.png
- ## edit food: image.png
+ ## Home page: 
+ image.png
+ ## Edit profile form:
+ image.png
+ ## Edit kicthen:
+ image.png
+ ## edit food:
+ image.png
 
 ## License 
   ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg) 

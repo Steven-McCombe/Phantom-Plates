@@ -20,6 +20,6 @@ async function handleUserDelete() {
     }
 };
   
-const deleteAddressBtn = document.querySelector("#deleteUser")
+const deleteUserBtn = document.querySelector("#deleteUser")
 
-deleteAddressBtn.addEventListener('click', handleUserDelete);
+deleteUserBtn.addEventListener('click', handleUserDelete);

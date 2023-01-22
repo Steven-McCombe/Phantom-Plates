@@ -112,13 +112,12 @@ router.put('/', withAuth, async (req, res) => {
 });
 
 //DELETE KITCHEN ROUTE
-//TODO Add withAuth ('/', withAuth, async back after testing to ensure only users who created the comment can edit
-router.delete('/:id', async (req, res) => {
+
+router.delete('/', withAuth, async (req, res) => {
   try {
     const dbKitchen = await Kitchen.destroy({
       where: {
-        id: req.params.id,
-        // user_id: req.session.user_id //!Add this in when live.
+        user_id: req.session.user_id 
       },
     });
     res.json(dbKitchen);

@@ -209,10 +209,10 @@ router.get('/addkitchen', (req, res) => {
 
     res.render('addkitchen');
 });
-//Render Edit Address
-router.get('/editAddress', (req, res) => {
+//Render Add Address
+router.get('/addaddress', (req, res) => {
 
-    res.render('editAddress');
+    res.render('addAddress');
 });
 
 

@@ -1,6 +1,6 @@
 {{> navbar}}
 
-
+{{#if logged_in}}
 <h1 style="text-align: center;">User Profile </h1>
 <p style="text-align: center;">Modify your profile here</p>
 {{> userprofile}}
@@ -8,4 +8,7 @@
 {{> kitchenprofile}}
 <br>
 {{> foodprofile}}
+{{else}}
 
+<a href="/login"></a><h1>Please login or sign up to view this page</h1>
+{{/if}}

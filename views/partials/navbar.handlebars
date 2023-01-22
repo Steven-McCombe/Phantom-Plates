@@ -46,7 +46,9 @@
                         <span>Home</span>
                     </a>
                     </li>
+                    {{#if logged_in}}
                     <li>
+
                     <a id = "navbutton-profile" class="nav-link" href="/dashboard">
                         <i class="material-icons mr-2 text-base opacity-60">account_circle</i>
                         <span>Dashboard</span>
@@ -65,7 +67,7 @@
                         </a>
                     </li>
                     {{!-- nav bar will show log out if logged in or log in if logged out  --}}
-                    {{#if logged_in}}
+                    
                     <li>
                         <button id="navbutton-logout" class="nav-link">
                         {{!-- <a id = "navbutton-logout" class="nav-link" href="#"> --}}

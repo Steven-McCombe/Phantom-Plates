@@ -20,7 +20,7 @@
       {{/each}}
          <div class="buttons flex ">
       <a id = "editprofile" class="nav-link" href="/editprofile"><i class="material-icons mr-2 text-base opacity-60">edit</i></a>
-      <a id = "deleteprofile" class="nav-link" href="/deleteprofile"><i class="material-icons mr-2 text-base opacity-60">delete</i></a>
+      <a id = "deleteUser" class="nav-link" href="#"><i class="material-icons mr-2 text-base opacity-60">delete</i></a>
       </div>
     </div>
     <div class="addressinfo mt-20  pb-5">
@@ -49,4 +49,8 @@
 
 {{#if addresses}}
 <script src="./js/deleteAddress.js"></script>
+{{/if}}
+
+{{#if users}}
+<script src="./js/deleteUser.js"></script>
 {{/if}}

@@ -122,4 +122,22 @@ router.get('/:id', async (req, res) => {
     }
   });
 
+  router.delete('/', withAuth, async (req, res) => {
+    try {
+     const dbUser = await User.destroy({
+        where: {
+          id: req.session.user_id
+        },
+      });
+      req.session.destroy(() => {
+        res.status(204).end();
+      });
+      res.json(dbUser);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+  
+
 module.exports = router;

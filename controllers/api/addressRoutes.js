@@ -110,7 +110,6 @@ router.put('/:id', async (req, res) => {
   });
 
   // DELETE AN ADDRESS 
-  //TODO Add withAuth ('/', withAuth, async back after testing to ensure only users who created the comment can edit
 router.delete('/', withAuth, async (req, res) => {
   try {
    const dbAddress = await Address.destroy({

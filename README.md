@@ -32,8 +32,6 @@ With the dashboard button, users can edit and add their kitchen, food, profile, 
 My orders button will display the orders that the users requested while the near me button will show which kitchen is near me with regards to the distance of the kitchen from my home. 
 
 ### Application Screenshot:
-
- -[<img src="public/images/Application_Screenshot.jpeg">](https://)
  ## Home page: 
  ![image](https://user-images.githubusercontent.com/113649566/213936985-d0b31fc6-6c61-4c0c-b04f-6f29d9ec7cd6.png)
  ## Edit profile form:

@@ -6,7 +6,7 @@ const commentSubmit = async (event) => {
 
     const comment_body = document.querySelector('#newComment').value.trim();
     const kitchen_id = urlId.at(-1)
-    const rating = 5;
+    const rating = document.querySelector('#rating').value;
 
     console.log(comment_body);
     console.log(kitchen_id);

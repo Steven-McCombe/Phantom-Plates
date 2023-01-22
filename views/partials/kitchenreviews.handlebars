@@ -1,3 +1,5 @@
+<h2 class="text-center">See what others are saying</h2>
+<div class="container">
 {{#each kitchens}}
 {{#if comments}}
 {{#each comments}}
@@ -10,6 +12,7 @@
                             </div>
                             <div class="flex-grow pl-3">
                                 <h6 class="font-bold text-sm uppercase text-gray-600">{{this.user.name}}</h6>
+                                <p class="text-right">{{rating}}/5 ⭐</p>
                             </div>
                         </div>
                         <div class="w-full">
@@ -18,7 +21,8 @@
                     </div>
                     </div>
                 </div>
-            </div>
+            
 {{/each}}
 {{/if}}
 {{/each}}
+</div>

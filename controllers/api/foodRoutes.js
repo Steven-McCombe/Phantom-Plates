@@ -21,7 +21,26 @@ router.post('/', async (req, res) => {
         res.status(400).json(err);
     }
 });
-
+router.put('/', async (req, res) => {
+    try {
+    const dbFood = await Food.update({
+    food_name: req.body.food_name,
+    description: req.body.description,
+    ingredients: req.body.ingredients,
+    price: req.body.price,
+    image_url: req.body.image_url,
+    },
+    {
+    where: {
+    id: req.body.id
+    }
+    });
+    res.json(dbFood);
+    } catch (err) {
+    res.status(400).json(err);
+    }
+    });
+    
 // Get all Food
 router.get('/', async (req, res) => {
     try {

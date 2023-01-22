@@ -196,7 +196,7 @@ router.get('/editprofile', (req, res) => {
         logged_in: req.session.logged_in});
 });
 
-//Render Edit Food
+//Render Add food Food
 router.get('/addfood', withAuth, async (req, res) => {
     const dbKitchen = await Kitchen.findOne({
         where: {
@@ -208,6 +208,21 @@ router.get('/addfood', withAuth, async (req, res) => {
     }
     res.render('addfood', {
         kitchen,
+        logged_in: req.session.logged_in});
+});
+// Render Edit food
+router.get('/editfood/:id', withAuth, async (req, res) => {
+    const dbFood = await Food.findOne({
+        where: {
+            id: req.params.id
+        },
+    })
+    console.log(dbFood)
+    if (dbFood) { 
+        food = dbFood.get({plain: true})
+    }
+    res.render('editfood', {
+        food,
         logged_in: req.session.logged_in});
 });
 

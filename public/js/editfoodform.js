@@ -1,6 +1,6 @@
 const foodFormHandler = async (event) => {
     event.preventDefault();
-    const kitchen_id = document.querySelector('#kitchenId').innerHTML;
+    const id = document.querySelector('#foodId').innerHTML;
     const food_name = document.querySelector('#food_name').value.trim();
     const description = document.querySelector('#description').value.trim();
     const ingredients = document.querySelector('#ingredients').value.trim();
@@ -10,15 +10,15 @@ const foodFormHandler = async (event) => {
     if (food_name && description && ingredients && price && image_url) {
         // Send a POST request to the API endpoint
         const response = await fetch('/api/food/', {
-            method: 'POST',
-            body: JSON.stringify({ kitchen_id, food_name, description, ingredients, price, image_url, }),
+            method: 'PUT',
+            body: JSON.stringify({ id, food_name, description, ingredients, price, image_url, }),
             headers: { 'Content-Type': 'application/json' },
         });
 
         if (response.ok) {
             // If successful, redirect the browser to the profile page
             console.log(response)
-             document.location.replace('/dashboard');
+            document.location.replace('/dashboard');
         } else {
             alert(response.statusText);
         }

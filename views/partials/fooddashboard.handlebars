@@ -1,7 +1,9 @@
-{{!-- start of menu table  --}}
+ {{!-- start of menu table  --}}
+{{#each users}}
 {{#if kitchen}}
 <h1 style="text-align: center;">Your Menu </h1>
 <p style="text-align: center;">Modify your Menu here</p>
+<a href="/addfood"><p style="text-align: center;">Add Menu Items</p></a>
 
 <div class="container" id="order-form">
     <div class="overflow-hidden rounded-lg border border-gray-200 shadow-md m-5">
@@ -11,14 +13,14 @@
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Item</th>
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Ingredients</th>
         <th scope="col" class="px-6 py-4 font-medium text-gray-900">Price</th>
-        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Quantity</th>
-        <th scope="col" class="px-6 py-4 font-medium text-gray-900">Add</th>
+        <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
+        <th scope="col" class="px-6 py-4 font-medium text-gray-900"></th>
       </tr>
     </thead>
+{{/if}}
 
-{{#each users}}
-{{#each kitchen.food}}
     <tbody class="divide-y divide-gray-100 border-t border-gray-100">
+      {{#each kitchen.food}}
       <tr class="hover:bg-gray-50">
         <th class="flex gap-3 px-6 py-4 font-normal text-gray-900">
           <div class="relative h-20 w-20">
@@ -44,18 +46,18 @@
         </td>
         <td class="px-6 py-4">
           <div class="flex justify-end gap-4">
-    <a id = "editProfile" class="nav-link" href="/editProfile"><i class="material-icons mr-2 text-base opacity-60">edit</i></a>
-    <a id = "addProfile" class="nav-link" href="/addProfile"><i class="material-icons mr-2 text-base opacity-60">add</i></a>
-    <a id = "deleteProfile" class="nav-link" href="/deleteProfile"><i class="material-icons mr-2 text-base opacity-60">delete</i></a>
+    <a id = "editFood" class="nav-link" href="/editfood/{{id}}"><i class="material-icons mr-2 text-base opacity-60">edit</i></a>
+    <a id = "deleteFood" class="nav-link" href="/deletefood"><i class="material-icons mr-2 text-base opacity-60">delete</i></a>
             </a>
           </div>
         </td>
       </tr>
     </tbody>
-   {{/each}}
-   {{/each}}
+{{/each}}
+
   </table>
 </div>
 </div>
 
-{{/if}}
+
+{{/each}}

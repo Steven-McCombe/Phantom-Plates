@@ -171,7 +171,7 @@ router.get('/order', (req, res) => {
     res.render('order', {
     logged_in: req.session.logged_in});
 });
-//RENDER ORDER PAGE
+//RENDER NEARME PAGE
 router.get('/nearme', async (req, res) => {
     let kitchens = null
     let address = null
@@ -184,7 +184,7 @@ router.get('/nearme', async (req, res) => {
         address = dbAddress.get({ plan: true })
         const dbKitchen = await Kitchen.findAll({
             where: {
-                location: { [Op.like]:  address.city  }
+                location: { [Op.like]:  '%' + address.city + "%" }
             }
         })
         console.log(dbKitchen)

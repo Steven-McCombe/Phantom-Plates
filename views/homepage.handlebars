@@ -64,37 +64,30 @@
 {{!-- start Recently added food --}}
 <h5 class="text-center">Recently Added Foods</h5>
 
-<div class="container available-kitchens flex flex-wrap py-0 items-center justify-center">
+<section class="overflow-hidden text-gray-700 ">
+  <div class="container px-5 py-2 mx-auto lg:pt-12 lg:px-32">
+    <div class="flex flex-wrap mx-1 md:mx-2">
 {{#each kitchens}}
-{{!-- KITCHEN CARD  --}}
 {{#each food as |food|}}
-<div class="col-span-4 sm:col-span-4 md:col-span-2 lg:col-span-1 xl:col-span-1 flex flex-col items-center ml-2 mr-2 w-32 h-130"
-          >
-            <div class="bg-white rounded-lg mt-5">
-              <img
-                src="{{image_url}}"
-                class="h-20 rounded-md w-32"
-                alt=""
-              />
-            </div>
-            <div class="bg-white shadow-lg rounded-lg -mt-4 w-32 h-100 overflow-hidden">
-              <div class="py-1 px-1">
-                <span class="font-semibold text-gray-800 text-s whitespace-nowrap ">{{food_name}}</span>
-                <div class="py-1 px-1">
-                    <p class="text-xs mb-2 font-extrathin h-20 w-31 overflow-hidden">{{description}}</p>
-                    <br>
-                    <p value = "{{price}}" class="text-xs">Price: ${{price}}</p>
-                    <br>
-                    <a class="align-end "href="/kitchen/{{kitchen_id}}">View Menu</a>
 
-                </div>
-              </div>
-            </div>       
-</div>
+<a href="/kitchen/{{kitchen_id}}#order-form"><div class="relative flex mx-1 my-1 h-56 w-56">
+  <img alt="gallery" class="block object-cover object-center w-full h-full rounded-lg" src="{{image_url}}">
+  <div class="flex flex-column absolute inset-0 bg-black opacity-60 text-white p-2 rounded-lg justify-between">
+    <p class="text-xl font-semibold">{{food_name}}</p>
+    <p class="text-xs font-semibold">{{description}}</p>
+    <p class="text-small">${{price}}</p>
+
+  </div>
+</div> </a>
+
 {{/each}}
-{{!-- END KITCHEN CARD  --}}
 {{/each}}
-</div>
+    </div>
+  </div>
+</section>
+
+
+
 
 {{!-- script for carousel functionality  --}}
 <script src="./js/carousel.js"></script>

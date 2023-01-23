@@ -7,17 +7,6 @@ module.exports = {
         return `${new Date(date).getMonth() + 1}/${new Date(date).getDate()}/${new Date(date).getFullYear() + " @ " + time}`;
         return date
     },
-    
-    // preview_contents: contents => { 
-    //     if (contents == null) {
-    //         return contents
-    //     }else if (contents.length >= 51) {
-    //         return contents.slice(0, 50) + "..."
-    //     } else { 
-    //         return contents
-    //     }
-    // },
-
     days_ago: date => {
         let d = new Date();
         let ago = date

@@ -18,6 +18,10 @@ User.hasOne(Kitchen, {
     onDelete: 'CASCADE'
 })
 
+User.hasOne(Address, {
+    foreignKey: 'user_id',
+    onDelete: 'CASCADE'
+})
 Kitchen.belongsTo(User, {
     foreignKey: 'user_id',
     onDelete: 'CASCADE'

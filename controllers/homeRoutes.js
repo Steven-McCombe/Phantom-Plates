@@ -2,6 +2,7 @@ const router = require('express').Router();
 const sequelize = require('../config/connection');
 const { Comments, Food, Kitchen, User, Address} = require('../models');
 const withAuth = require('../utils/auth');
+const { Op } = require("sequelize")
 
 //RENDER HOMEPAGE
 router.get('/', async (req, res) => {
@@ -93,11 +94,7 @@ router.get('/signup', (req, res) => {
     }
     res.render('signup');
 });
-//RENDER SEARCH PAGE
-router.get('/search', (req, res) => {
 
-    res.render('search');
-});
 
 //RENDER DASHBOARD
 router.get('/dashboard', async (req, res) => {
@@ -172,6 +169,37 @@ router.get('/dashboard', async (req, res) => {
 router.get('/order', (req, res) => {
 
     res.render('order', {
+    logged_in: req.session.logged_in});
+});
+//RENDER ORDER PAGE
+router.get('/nearme', async (req, res) => {
+    let kitchens = null
+    let address = null
+    const dbAddress = await Address.findOne({
+        where: {
+            user_id: req.session.user_id
+        },
+    })
+    if (dbAddress) { 
+        address = dbAddress.get({ plan: true })
+        const dbKitchen = await Kitchen.findAll({
+            where: {
+                location: { [Op.like]:  address.city  }
+            }
+        })
+        console.log(dbKitchen)
+        if (dbKitchen) { 
+        kitchens = dbKitchen.map((kitchen) => kitchen.get({ plain: true }));
+        }
+    }
+    if (!dbAddress) { 
+        return res.redirect('/addaddress')
+    }
+
+  
+    res.render('nearme',{
+        address,
+        kitchens,
     logged_in: req.session.logged_in});
 });
 

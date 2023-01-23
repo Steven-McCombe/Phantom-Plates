@@ -92,23 +92,25 @@ router.post('/', withAuth, async (req, res) => {
 //EDIT KITCHEN REQUEST
 //TODO Add withAuth ('/', withAuth, async back after testing to ensure only users who created the comment can edit
 router.put('/', withAuth, async (req, res) => {
-  try {
-    const dbKitchen = await Kitchen.update({
-      user_id: req.session.user_id,
-      kitchen_name: req.body.kitchen_name,
-      location: req.body.location,
-      description: req.body.description,
-      neighborhood: req.body.neighborhood,
-      cuisine: req.body.cuisine,
-      image_url: req.body.image_url,
-      delivery_radius: req.body.delivery_radius,
-      delivery_time: req.body.delivery_time
-    });
-    res.json(dbKitchen);
-  } catch (err) {
-    console.log(err);
-    res.status(500).json(err);
-  }
+try {
+const dbKitchen = await Kitchen.update({
+kitchen_name: req.body.kitchen_name,
+location: req.body.location,
+description: req.body.description,
+neighborhood: req.body.neighborhood,
+cuisine: req.body.cuisine,
+image_url: req.body.image_url,
+delivery_radius: req.body.delivery_radius,
+delivery_time: req.body.delivery_time,
+available: req.body.available
+}, {
+where: { user_id: req.session.user_id }
+});
+res.json(dbKitchen);
+} catch (err) {
+console.log(err);
+res.status(500).json(err);
+}
 });
 
 //DELETE KITCHEN ROUTE

@@ -47,7 +47,7 @@
         <td class="px-6 py-4">
           <div class="flex justify-end gap-4">
     <a id = "editFood" class="nav-link" href="/editfood/{{id}}"><i class="material-icons mr-2 text-base opacity-60">edit</i></a>
-    <a id = "deleteFood" class="nav-link" href="/deletefood"><i class="material-icons mr-2 text-base opacity-60">delete</i></a>
+    <a id = "deleteFood" class="nav-link delete-icon" href="#" value="{{id}}"><i class="material-icons mr-2 text-base opacity-60" value="{{id}}">delete</i></a>
             </a>
           </div>
         </td>
@@ -58,6 +58,8 @@
   </table>
 </div>
 </div>
-
-
+{{#if kitchen.food}}
+    <script src="./js/deletefood.js"></script>
+{{/if}}
 {{/each}}
+

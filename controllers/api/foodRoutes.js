@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
         description: req.body.description,
         ingredients: req.body.ingredients,
         price: req.body.price,
-        image_url: req.body_url,
+        image_url: req.body.image_url,
         })
         res.json(dbFood);
     } catch (err) {
@@ -82,5 +82,19 @@ router.get('/:id', async (req, res) => {
         res.status(400).json(err);
     }
 });
+
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+      const dbFood = await Food.destroy({
+        where: {
+          id: req.params.id
+        },
+      });
+      res.json(dbFood);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
 
 module.exports = router;

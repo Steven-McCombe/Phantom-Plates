@@ -217,7 +217,6 @@ router.get('/editfood/:id', withAuth, async (req, res) => {
             id: req.params.id
         },
     })
-    console.log(dbFood)
     if (dbFood) { 
         food = dbFood.get({plain: true})
     }
@@ -226,12 +225,7 @@ router.get('/editfood/:id', withAuth, async (req, res) => {
         logged_in: req.session.logged_in});
 });
 
-//Render Edit Kitchen
-router.get('/editkitchen', (req, res) => {
 
-    res.render('editkitchen', {
-        logged_in: req.session.logged_in});
-});
 
 //Render Add Kitchen
 router.get('/addkitchen', (req, res) => {
@@ -242,7 +236,7 @@ router.get('/addkitchen', (req, res) => {
 //Render Add Address
 router.get('/addaddress', (req, res) => {
 
-    res.render('addAddress', {
+    res.render('addaddress', {
         logged_in: req.session.logged_in});
 });
 

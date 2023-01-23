@@ -83,4 +83,18 @@ router.get('/:id', async (req, res) => {
     }
 });
 
+router.delete('/:id', withAuth, async (req, res) => {
+    try {
+      const dbFood = await Food.destroy({
+        where: {
+          id: req.params.id
+        },
+      });
+      res.json(dbFood);
+    } catch (err) {
+      console.log(err);
+      res.status(500).json(err);
+    }
+  });
+
 module.exports = router;

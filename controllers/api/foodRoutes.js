@@ -14,7 +14,7 @@ router.post('/', async (req, res) => {
         description: req.body.description,
         ingredients: req.body.ingredients,
         price: req.body.price,
-        image_url: req.body_url,
+        image_url: req.body.image_url,
         })
         res.json(dbFood);
     } catch (err) {
